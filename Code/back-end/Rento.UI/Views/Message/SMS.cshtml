@@ -1,0 +1,44 @@
+﻿@using Resources;
+@{
+    ViewBag.Title = Resources.Resource.SmsMessage;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Resources.Resource.SmsMessage</h2>
+<hr />
+@using (Html.BeginForm("SMSPost", "Message", FormMethod.Post, new { id = "mainForm", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div id="mainDiv" class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-md-2">@Resources.Resource.Mobile :</label>
+            <div class="col-md-4">
+                <input name="Mobile" class="form-control required" placeholder="@Resources.Resource.Mobile" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">@Resources.Resource.Text :</label>
+            <div class="col-md-10">
+                <textarea id="Body" name="Body" class="form-control required" cols="20" rows="2"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="@Resources.Resource.Send" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+@section scripts{
+    <script>
+        _orderPage = true;
+        $('#mainForm').submit(function () {
+            sendPostRequest(null, null, clearBtn);
+            return false;
+        });
+        function clearBtn() {
+            $(':input').not(':button, :submit').val('');
+            $('#Body').val('');
+        }
+    </script>
+}

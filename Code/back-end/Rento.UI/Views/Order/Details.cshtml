@@ -1,0 +1,220 @@
+﻿@model Rento.Entity.OrderItem
+
+@{
+    ViewBag.Title = Resources.Resource.OrderDetail;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (Rento.UI.Shared.FixData.IsRTL)
+{
+    @Styles.Render("~/assets/Car/SaveAr");
+}
+else
+{
+    @Styles.Render("~/assets/Car/Save");
+}
+<h2>@Resources.Resource.OrderDetail </h2>
+
+@using (Html.BeginForm("Close", "Order", FormMethod.Post, new { id = "mainForm", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id)
+    <div class="form-horizontal">
+        <hr />
+        @if (Model.CustomerInfo.IdentifierImageId != 0)
+        {
+            <div class="form-group">
+                <label class="control-label col-md-2">@Resources.Resource.IdImage :</label>
+                <div class="col-md-10">
+                    <img width="400" height="200" src="@Url.Action("GetImage", "Image", new { id = Model.CustomerInfo.IdentifierImageId })" />
+                    <a class="btn btn-default" href="@Url.Action("GetImage", "Image", new { id = Model.CustomerInfo.IdentifierImageId })" download="@(string.Format("{0}_Id.jpg", Model.CustomerInfo.IdentifierId))">@Resources.Resource.Download</a>
+                </div>
+            </div>
+        }
+        @if (Model.CustomerInfo.LicenceImageId != 0)
+        {
+            <div class="form-group">
+                <label class="control-label col-md-2">@Resources.Resource.LicenceImage :</label>
+                <div class="col-md-10">
+                    <img width="400" height="200" src="@Url.Action("GetImage", "Image", new { id = Model.CustomerInfo.LicenceImageId })" />
+                    <a class="btn btn-default" href="@Url.Action("GetImage", "Image", new { id = Model.CustomerInfo.LicenceImageId })" download="@(string.Format("{0}_Licence.jpg", Model.CustomerInfo.IdentifierId))">@Resources.Resource.Download</a>
+                </div>
+            </div>
+        }
+        <div class="form-group">
+            <label class="control-label col-md-2">@Resources.Resource.Name :</label>
+            <div class="col-md-4">
+                <input readonly class="form-control" value="@Model.CustomerInfo.FullName" />
+            </div>
+            <label class="control-label col-md-2">@Resources.Resource.Mobile :</label>
+            <div class="col-md-4">
+                <input readonly class="form-control" value="@Model.CustomerInfo.Mobile" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">@Resources.Resource.IdNumber :</label>
+            <div class="col-md-4">
+                <input readonly class="form-control" value="@Model.CustomerInfo.IdentifierId" />
+            </div>
+            <label class="control-label col-md-2">@Resources.Resource.BirthDate :</label>
+            <div class="col-md-4">
+                <input readonly class="form-control" value="@Model.CustomerInfo.DOP.ToString("dd/MM/yyyy")" />
+            </div>
+        </div>
+
+        <hr />
+        <div class="form-group">
+            <label class="control-label col-md-2">@Resources.Resource.CarName :</label>
+            <div class="col-md-4">
+                <input readonly class="form-control" value="@Model.CarName" />
+            </div>
+            <label class="control-label col-md-2">@Resources.Resource.Status :</label>
+            <div class="col-md-4">
+                <input readonly class="form-control" value="@Resources.Resource.ResourceManager.GetString( Model.CheckoutFlag.ToString())" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">@Resources.Resource.From :</label>
+            <div class="col-md-4">
+                <input readonly class="form-control" value="@Model.From.ToString("dd/MM/yyyy")" />
+            </div>
+            <label class="control-label col-md-2">@Resources.Resource.To :</label>
+            <div class="col-md-4">
+                <input readonly class="form-control" value="@Model.To.ToString("dd/MM/yyyy")" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">@Resources.Resource.Price :</label>
+            <div class="col-md-4">
+                <input readonly class="form-control" value="@Model.Price" />
+            </div>
+            <label class="control-label col-md-2">@Resources.Resource.CustomerGender :</label>
+            <div class="col-md-4">
+                <input readonly class="form-control" value="@Resources.Resource.ResourceManager.GetString(Model.CustomerInfo.Gender.ToString())" />
+            </div>
+        </div>
+
+        @if (Model.CheckoutFlag == Rento.Entity.CheckoutFlag.DeliverToMyLocation && Model.Location != null)
+        {
+            <div class="form-group">
+                <div class="col-md-8" style="">
+                    <div id="map" style="width:1100px;height:500px"></div>
+                </div>
+            </div>
+            <script>
+                function initMap() {
+                    var loc = { lat: @Model.Location.Longitude,  lng: @Model.Location.Latitude };
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                        center: loc,
+                        zoom: 15
+                    });
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: loc
+                    });
+
+                }
+            </script>
+
+            <script async defer
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBF29JzKCLybUTkZfyP9T4XFeEMGQxiifY&language=ar&callback=initMap"
+                    type="text/javascript"></script>
+        }
+        <hr />
+        @if ((int)Model.CheckoutFlag < 2)
+        {
+            <div class="form-group">
+                <label class="control-label col-md-2">@Resources.Resource.Action :</label>
+                <div class="col-md-4">
+                    <select onchange="checkReason()" class="form-control" id="Approve" name="Approve">
+                        <option selected value="true">@Resources.Resource.Approve</option>
+                        <option value="false">@Resources.Resource.Reject</option>
+                    </select>
+                </div>
+                <div id="reasonDiv" style="display:none">
+                    <label class="control-label col-md-2">@Resources.Resource.Reason : </label>
+                    <div class="col-md-4">
+                        <input class="form-control" id="Comment" name="Comment" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">@Resources.Resource.Rateing :</label>
+                <div class="col-md-4">
+                    <select class="form-control" id="Star" name="Star">
+                        <option value="1">@Resources.Resource.VeryBad</option>
+                        <option value="2">@Resources.Resource.Bad</option>
+                        <option value="3" selected>@Resources.Resource.Good</option>
+                        <option value="4">@Resources.Resource.VeryGood</option>
+                        <option value="5">@Resources.Resource.Excelent</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="@Resources.Resource.Save" class="btn btn-success" />
+                    @Html.ActionLink(Resources.Resource.Cancel, "Index", "Order", new { @class = "btn btn-danger" })
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="form-group">
+                <label class="control-label col-md-2">@Resources.Resource.Action :</label>
+                <div class="col-md-4">
+                    <input readonly class="form-control" value="@Resources.Resource.ResourceManager.GetString(Model.CheckoutFlag.ToString())" />
+                </div>
+                <label class="control-label col-md-2">@Resources.Resource.Reason :</label>
+                <div class="col-md-4">
+                    <label>@Model.Comment</label>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">@Resources.Resource.Rateing :</label>
+                <div class="col-md-4">
+                    <label>
+                        @switch (Model.Star)
+                        {
+                            case 1:
+                                @Resources.Resource.VeryBad
+                                break;
+                            case 2:
+                                @Resources.Resource.Bad
+                                break;
+                            case 3:
+                                @Resources.Resource.Good
+                                break;
+                            case 4:
+                                @Resources.Resource.VeryGood
+                                break;
+                            case 5:
+                                @Resources.Resource.Excelent
+                                break;
+                        }
+                    </label>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+@section scripts{
+    <script>
+        _orderPage = true;
+        function checkReason() {
+            if ($('#Approve').val() == 'true') {
+                $('#Comment').removeClass('required');
+                $('#reasonDiv').hide();
+            }
+            else {
+                $('#reasonDiv').show();
+                $('#Comment').addClass('required');
+            }
+        }
+        $('#mainForm').submit(function () {
+            sendPostRequest('Order/Index');
+            return false;
+        });
+    </script>
+}
+

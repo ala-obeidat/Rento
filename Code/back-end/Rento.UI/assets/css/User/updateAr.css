@@ -1,0 +1,44 @@
+﻿.item {
+    display: block;
+    border: 1px solid;
+    width: 25px;
+    padding: 0 5px;
+    font-size: 20px;
+    border-radius: 8px;
+    height: 27px;
+    cursor: pointer;
+    background-color: #0f0 !important;
+    color: #0d17f6 !important;
+}
+
+    .item :hover {
+        color: #ccc !important;
+        background-color: #0d17f6 !important;
+    }
+
+#placesParentDiv > div > div {
+    display: inline-table !important;
+    margin: 0 10px;
+}
+
+#itemSelect {
+    width: 225px;
+}
+
+.added-item {
+    border: 1px solid;
+    padding: 2px;
+}
+
+    .added-item > * {
+        display: inline-grid;
+        margin: 0 1px;
+    }
+
+    .added-item > .item.delete-item {
+        font-size: 12px;
+        height: 19px;
+        padding: 0 7px;
+        background-color: red !important;
+        color: white !important;
+    }

@@ -1,0 +1,63 @@
+﻿@model Rento.Entity.UserLogin
+
+@{
+    ViewBag.Title =Resources.Resource.Add;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Resources.Resource.Users</h2>
+
+
+@using (Html.BeginForm("Save", "Management", FormMethod.Post, new { id = "mainForm", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>@Resources.Resource.Add</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label for="Username" class="control-label col-md-2">@Resources.Resource.Username</label>
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control required" } })
+                @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+            </div>
+            <label for="Password" class="control-label col-md-2">@Resources.Resource.Password</label>
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control required" } })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="IsOperation" class="control-label col-md-2">@Resources.Resource.Operation</label>
+            <div class="col-md-10">
+                <input class="big-checkbox" type="checkbox" value="True" name="IsOperation" id="IsOperation" />
+            </div>
+        </div>
+        <label class="text-danger" id="errorMessage"></label>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="@Resources.Resource.Save" class="btn btn-default" />
+                @Html.ActionLink(Resources.Resource.Cancel, "Index", "Management", new { @class = "btn btn-default" })
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#mainForm').submit(function () {
+                $('#errorMessage').empty();
+                if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{5,16}$/.test(document.getElementById('Password').value))
+                {
+                    $('#errorMessage').html('صيغة كلمة المرور يجب أن تكون بالإنجليزية فقط وأن تحتوي حرف انجليزي كبير وآخر صغير وأرقام ويكون طولها من 5-16 حرف');
+                    return false;
+                }
+                sendPostRequest('Management/Index');
+                return false;
+            });
+        });
+        
+    </script>
+}

@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Rento.Entity.Organization>
+@using Resources;
+@{
+
+    ViewBag.Title = Resources.Resource.Organizations;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Rento.UI.Shared.FixData.IsRTL)
+{
+    @Styles.Render("~/assets/Car/ListAr");
+}
+else
+{
+    @Styles.Render("~/assets/Car/List");
+}
+
+<h2>@Resource.Organizations</h2>
+<p>
+
+    @Html.ActionLink(Resource.Add + " " + @Resource.Organization, "Details", new { id = 0 }, new { @class = "btn btn-success" })
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Resource.Number
+            </th>
+            <th>
+                @Resource.Name
+            </th>
+            <th>
+                @Resource.Status
+            </th>
+            <th>
+                @Resource.CreateDate
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    @{
+        if (Model == null)
+        {
+            <tr>
+                <td class="text-center" colspan="5">@Resource.EmptyTable</td>
+            </tr>
+        }
+        else
+        {
+
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <label>@item.Id</label>
+                    </td>
+                    <td>
+                        <label>@item.Name</label>
+                    </td>
+                    <td>
+                        <label>@Resource.ResourceManager.GetString(item.Flag.ToString())</label>
+                    </td>
+                    <td>
+                        <label>@item.CreateDate.ToString("dd/MM/yyyy hh:mm tt")</label>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Details",new { id =item.Id})" class="btn btn-default">@Resources.Resource.Details</a>
+                    </td>
+                </tr>
+            }
+        }
+    }
+</table>
+@section scripts{
+    <script>
+    </script>
+}

@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "820116150428",
+    "firebase_url": "https://erent-368ab.firebaseio.com",
+    "project_id": "erent-368ab",
+    "storage_bucket": "erent-368ab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:820116150428:android:b4bfb2adf1ca6a91",
+        "android_client_info": {
+          "package_name": "com.chionophile.erent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "820116150428-iivgs5a830vll24k4lbakfleb8e6rdhr.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "820116150428-iivgs5a830vll24k4lbakfleb8e6rdhr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0FLMUejCxNVmu6wJZ5bn-zIySIjcs1Dg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

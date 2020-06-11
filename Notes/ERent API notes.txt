@@ -1,0 +1,28 @@
+1- Login 
+	Response:
+		reason shoud be "message".
+
+2- Forget Password
+	Response:
+		- What you mean by Token and why you need it.
+		- Where is change password or new password.
+
+3- Verification
+	
+
+4- Sign up
+	Request: 
+		- Country and City is lookup so you need to list them and in signup just send me Ids of them.
+		- What do you mean by "url" in send Id and Licence images.
+
+5- GetAllRequests
+	Request:
+		Where is search criterias: start date, end date, and status.
+
+6- SearchAPI
+	Request:
+		Where is Type ?
+
+7- BookNow
+	Request:
+		Why there are time in request

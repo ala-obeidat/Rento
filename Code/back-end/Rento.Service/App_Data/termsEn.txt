@@ -1,0 +1,4 @@
+I acknowldge that all provided information is correct.
+
+E-Rent is application witch make a relation between customer in the application and provider from rent office, as soon as every office has his terms and conditions witch we show them to you in application.
+Then our application does not take any responsibilty in case the rent office reject the booking process.

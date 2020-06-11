@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = Resources.Resource.Home;
+}
+
+<script>
+    function initMap() {
+        var loc = { lng: 46.63243680, lat: 24.81742290 };
+        var map = new google.maps.Map(document.getElementById('map'), {
+            center: loc,
+            zoom: 15
+        });
+        var marker = new google.maps.Marker({
+            map: map,
+            position: loc
+        });
+
+    }
+</script>
+<div class="form-horizontal">
+    <div class="col-md-8" style="margin-top:200px">
+        <div id="map" style="width:200px;height:200px"></div>
+    </div>
+
+</div>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBF29JzKCLybUTkZfyP9T4XFeEMGQxiifY&callback=initMap"
+        type="text/javascript"></script>

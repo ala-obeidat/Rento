@@ -1,0 +1,561 @@
+
+/* Class = "UILabel"; text = "-"; ObjectID = "04B-rU-a62"; */
+"04B-rU-a62.text" = "-";
+
+/* Class = "UIButton"; normalTitle = "Confirm Booking"; ObjectID = "09F-2m-gmc"; */
+"09F-2m-gmc.normalTitle" = "تاكيد الطلب";
+
+/* Class = "UILabel"; text = "Year"; ObjectID = "0zR-TV-ZYk"; */
+"0zR-TV-ZYk.text" = "السنة";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "19w-ev-8Ef"; */
+"19w-ev-8Ef.text" = "-";
+
+/* Class = "UILabel"; text = "Welcome"; ObjectID = "1Ih-VE-ng2"; */
+"1Ih-VE-ng2.text" = "أهلا بك";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "1KP-18-mhU"; */
+"1KP-18-mhU.text" = "-";
+"oMc-Vt-xRg.title" = "تم";
+/* Class = "UILabel"; text = "Color :"; ObjectID = "1Mk-rt-0oh"; */
+"1Mk-rt-0oh.text" = "اللون :";
+"Lut-iL-QWh.normalTitle" = "مشاهدة على الخريطة";
+"GRx-wl-Smz.text" = "تواصل معنا";
+"4wu-0B-18a.text" = "معلومات التواصل";
+"qjB-5k-0oE.text" = "رقم المكتب";
+/* Class = "UITextField"; placeholder = "Enter your comment..."; ObjectID = "1YH-Ep-I5f"; */
+"1YH-Ep-I5f.placeholder" = "أدخل تعليقك...";
+"1B3-PS-3kq.normalTitle" = "ارسل";
+/* Class = "UILabel"; text = "Login"; ObjectID = "1mJ-Ce-phe"; */
+"1mJ-Ce-phe.text" = "تسجيل الدخول";
+"FQw-uy-k4Q.normalTitle" = "تواصل معنا";
+"ZG6-20-Sl5.normalTitle" = "تواصل معنا";
+
+"Q9e-Hc-iWh.text" = "معلومات التواصل";
+/* Class = "UILabel"; text = "Profile Photo"; ObjectID = "1vv-FT-8Ef"; */
+"1vv-FT-8Ef.text" = "صورة الملف";
+
+/* Class = "UILabel"; text = "Model :"; ObjectID = "2d0-0c-ZAr"; */
+"2d0-0c-ZAr.text" = "الموديل :";
+
+/* Class = "UITextField"; placeholder = "Phone number"; ObjectID = "2h1-z4-gbm"; */
+"2h1-z4-gbm.placeholder" = "رقم الهاتف";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "2sB-99-DK4"; */
+"2sB-99-DK4.text" = "-";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "2sy-Qu-AIR"; */
+"2sy-Qu-AIR.text" = "-";
+
+/* Class = "UILabel"; text = "Color :"; ObjectID = "3j6-WD-cCO"; */
+"3j6-WD-cCO.text" = "اللون :";
+
+/* Class = "UIButton"; normalTitle = "العربية"; ObjectID = "3kO-oJ-u3M"; */
+"3kO-oJ-u3M.normalTitle" = "English";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "3qK-dx-Gpn"; */
+"3qK-dx-Gpn.text" = "-";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "449-Dz-aYj"; */
+"449-Dz-aYj.text" = "-";
+
+/* Class = "UILabel"; text = "Change Language To"; ObjectID = "4LA-HX-hwU"; */
+"4LA-HX-hwU.text" = "تغيير اللغة الى";
+
+/* Class = "UILabel"; text = "Offer"; ObjectID = "4Sg-jG-KeY"; */
+"4Sg-jG-KeY.text" = "العروض";
+
+/* Class = "UILabel"; text = "Date"; ObjectID = "4YP-Nh-gBh"; */
+"4YP-Nh-gBh.text" = "التاريخ";
+
+/* Class = "UILabel"; text = "office :"; ObjectID = "4ep-VF-Ngj"; */
+"4ep-VF-Ngj.text" = "المكتب :";
+
+/* Class = "UILabel"; text = "Book Now"; ObjectID = "5Gy-YB-1Pg"; */
+"5Gy-YB-1Pg.text" = "احجز الان";
+
+/* Class = "UIButton"; normalTitle = "Submit"; ObjectID = "5Rf-Ht-fPV"; */
+"5Rf-Ht-fPV.normalTitle" = "تاكيد";
+
+/* Class = "UILabel"; text = "Booking Date"; ObjectID = "5ld-ng-XcG"; */
+"5ld-ng-XcG.text" = "تاريخ الحجز";
+
+/* Class = "UILabel"; text = "Country"; ObjectID = "5wI-8N-0ec"; */
+"5wI-8N-0ec.text" = "الدولة";
+
+/* Class = "UILabel"; text = "2018"; ObjectID = "69z-iG-uzL"; */
+"69z-iG-uzL.text" = "2018";
+
+/* Class = "UILabel"; text = "Model :"; ObjectID = "6Ba-it-llN"; */
+"6Ba-it-llN.text" = "الموديل :";
+
+/* Class = "UILabel"; text = "Type"; ObjectID = "6Dc-mt-9V2"; */
+"6Dc-mt-9V2.text" = "النوع";
+
+/* Class = "UILabel"; text = "Type :"; ObjectID = "6UM-X0-Yq9"; */
+"6UM-X0-Yq9.text" = "النوع :";
+
+/* Class = "UIButton"; normalTitle = "English"; ObjectID = "775-uq-wIH"; */
+"775-uq-wIH.normalTitle" = "English";
+
+/* Class = "UILabel"; text = "Cost"; ObjectID = "7RW-qL-dIf"; */
+"7RW-qL-dIf.text" = "التكلفة";
+
+/* Class = "UIButton"; normalTitle = "CANCEL"; ObjectID = "8mM-h2-xqc"; */
+"8mM-h2-xqc.normalTitle" = "الغاء";
+
+/* Class = "UILabel"; text = "Price :"; ObjectID = "9RV-6c-BxN"; */
+"9RV-6c-BxN.text" = "السعر :";
+
+/* Class = "UILabel"; text = "Monthly"; ObjectID = "A53-e4-j0m"; */
+"A53-e4-j0m.text" = "شهري";
+
+/* Class = "UILabel"; text = "Year :"; ObjectID = "ATw-SM-0UF"; */
+"ATw-SM-0UF.text" = "السنة :";
+
+/* Class = "UITextField"; placeholder = "Country"; ObjectID = "BSh-nB-Mrs"; */
+"BSh-nB-Mrs.placeholder" = "الدولة";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "Ba5-XJ-Rpo"; */
+"Ba5-XJ-Rpo.text" = "-";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "C6F-RC-HK8"; */
+"C6F-RC-HK8.text" = "-";
+
+/* Class = "UIButton"; normalTitle = "Search"; ObjectID = "CEn-wf-9jj"; */
+"CEn-wf-9jj.normalTitle" = "بحث";
+
+/* Class = "UITextField"; placeholder = "City"; ObjectID = "CjD-Gj-Ucs"; */
+"CjD-Gj-Ucs.placeholder" = "المدينة";
+
+/* Class = "UILabel"; text = "Date :"; ObjectID = "Cp1-g1-W8F"; */
+"Cp1-g1-W8F.text" = "التاريخ :";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "D06-40-Lxu"; */
+"D06-40-Lxu.text" = "-";
+
+/* Class = "UILabel"; text = "Mirca"; ObjectID = "EGR-5C-xIR"; */
+"EGR-5C-xIR.text" = "Mirca";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "FEq-X7-qgR"; */
+"FEq-X7-qgR.text" = "-";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "Ff2-k9-RIb"; */
+"Ff2-k9-RIb.text" = "-";
+
+/* Class = "UIButton"; normalTitle = "forgot your password ?"; ObjectID = "Fip-Tv-0uw"; */
+"Fip-Tv-0uw.normalTitle" = "نسيت كلمة المرور";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "GLM-Ho-tVH"; */
+"GLM-Ho-tVH.text" = "-";
+
+/* Class = "UILabel"; text = "Receive Notifications"; ObjectID = "Gau-EU-IXe"; */
+"Gau-EU-IXe.text" = "استلام الاشعارات";
+
+/* Class = "UISegmentedControl"; Gmw-9E-Nwq.segmentTitles[0] = "Lowest"; ObjectID = "Gmw-9E-Nwq"; */
+"Gmw-9E-Nwq.segmentTitles[0]" = "الأقل";
+
+/* Class = "UISegmentedControl"; Gmw-9E-Nwq.segmentTitles[1] = "Highest"; ObjectID = "Gmw-9E-Nwq"; */
+"Gmw-9E-Nwq.segmentTitles[1]" = "الأعلى";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "GyP-mg-9Mr"; */
+"GyP-mg-9Mr.placeholder" = "كلمة المرور";
+
+/* Class = "UILabel"; text = "Year :"; ObjectID = "H7T-Sl-gxX"; */
+"H7T-Sl-gxX.text" = "السنة :";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "Hdw-qE-Lw4"; */
+"Hdw-qE-Lw4.text" = "-";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "Hf3-U2-p1H"; */
+"Hf3-U2-p1H.placeholder" = "اسم المستخدم";
+
+/* Class = "UITextField"; placeholder = "Birthdate"; ObjectID = "Hsi-qe-Fzi"; */
+"Hsi-qe-Fzi.placeholder" = "تاريخ الميلاد";
+
+/* Class = "UILabel"; text = "12:00"; ObjectID = "Iof-s2-GGL"; */
+"Iof-s2-GGL.text" = "12:00";
+
+/* Class = "UILabel"; text = "Settings"; ObjectID = "K8f-rh-aEj"; */
+"K8f-rh-aEj.text" = "الاعدادت";
+
+/* Class = "UILabel"; text = "Status :"; ObjectID = "K9b-F0-L6T"; */
+"K9b-F0-L6T.text" = "الحالة :";
+
+/* Class = "UILabel"; text = "Car Renting"; ObjectID = "K9w-D6-H3D"; */
+"K9w-D6-H3D.text" = "استاجر سيارة";
+
+/* Class = "UITabBarItem"; title = "Requests"; ObjectID = "Kyn-4N-kl6"; */
+"Kyn-4N-kl6.title" = "طلباتي";
+
+/* Class = "UILabel"; text = "Daily cost :"; ObjectID = "L5L-8C-gPi"; */
+"L5L-8C-gPi.text" = "التكلفة اليومية";
+
+/* Class = "UITextField"; placeholder = "From date"; ObjectID = "L9Z-uf-XyZ"; */
+"L9Z-uf-XyZ.placeholder" = "من تاريخ";
+
+/* Class = "UILabel"; text = "City"; ObjectID = "L9y-sM-zvF"; */
+"L9y-sM-zvF.text" = "المدينة";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "LJE-gW-wnw"; */
+"LJE-gW-wnw.text" = "-";
+
+/* Class = "UILabel"; text = "Type :"; ObjectID = "LsR-Pq-gDN"; */
+"LsR-Pq-gDN.text" = "النوع :";
+
+/* Class = "UILabel"; text = "Time :"; ObjectID = "MDF-Ze-gUI"; */
+"MDF-Ze-gUI.text" = "الوقت :";
+
+/* Class = "UITextField"; placeholder = "Confirm Password"; ObjectID = "MaQ-Wc-hj3"; */
+"MaQ-Wc-hj3.placeholder" = "تاكيد كلمة المرور";
+
+/* Class = "UIButton"; normalTitle = "Book Now"; ObjectID = "N9b-nB-aIg"; */
+"N9b-nB-aIg.normalTitle" = "احجز الان";
+
+/* Class = "UITextField"; placeholder = "To date"; ObjectID = "NEi-9m-cOY"; */
+"NEi-9m-cOY.placeholder" = "الى تاريخ";
+
+/* Class = "UILabel"; text = "Book this car"; ObjectID = "Nf5-as-QPT"; */
+"Nf5-as-QPT.text" = "احجز هذه السيارة";
+
+/* Class = "UILabel"; text = "Messages"; ObjectID = "O2T-cs-jPD"; */
+"O2T-cs-jPD.text" = "الرسائل";
+
+/* Class = "UILabel"; text = "To"; ObjectID = "OMQ-Ha-DDv"; */
+"OMQ-Ha-DDv.text" = "الى";
+
+/* Class = "UILabel"; text = "Car Information"; ObjectID = "OtS-VE-kvb"; */
+"OtS-VE-kvb.text" = "معلومات السيارة";
+
+/* Class = "UISegmentedControl"; P66-aa-0Vf.segmentTitles[0] = "Pickup from office"; ObjectID = "P66-aa-0Vf"; */
+"P66-aa-0Vf.segmentTitles[0]" = "استلام من المكتب";
+
+/* Class = "UISegmentedControl"; P66-aa-0Vf.segmentTitles[1] = "Delivery to location"; ObjectID = "P66-aa-0Vf"; */
+"P66-aa-0Vf.segmentTitles[1]" = "التوصيل للموقع";
+
+/* Class = "UILabel"; text = "Model :"; ObjectID = "P7F-kc-i1F"; */
+"P7F-kc-i1F.text" = "الموديل :";
+
+/* Class = "UITextField"; placeholder = "Verification code"; ObjectID = "PE8-nb-6ZM"; */
+"PE8-nb-6ZM.placeholder" = "رمز التاكيد";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "PyU-cv-sCh"; */
+"PyU-cv-sCh.text" = "-";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "QHY-Bg-ss2"; */
+"QHY-Bg-ss2.text" = "-";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "QSG-jO-GSI"; */
+"QSG-jO-GSI.text" = "-";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "QmX-ek-T6H"; */
+"QmX-ek-T6H.text" = "-";
+
+/* Class = "UILabel"; text = "UserName"; ObjectID = "REI-d8-TR7"; */
+"REI-d8-TR7.text" = "الاسم";
+
+/* Class = "UILabel"; text = "Provider :"; ObjectID = "RVK-XE-Ztc"; */
+"RVK-XE-Ztc.text" = "المزود :";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "RxZ-T5-a3j"; */
+"RxZ-T5-a3j.text" = "-";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "Sbm-xW-Ne1"; */
+"Sbm-xW-Ne1.text" = "-";
+
+/* Class = "UITextField"; placeholder = "Identifier"; ObjectID = "Szt-An-HJj"; */
+"Szt-An-HJj.placeholder" = "رقم الهوية";
+
+/* Class = "UITextField"; placeholder = "Enter a verification code"; ObjectID = "T3D-XZ-hCA"; */
+"T3D-XZ-hCA.placeholder" = "رمز التاكيد";
+
+/* Class = "UIButton"; normalTitle = "DONE"; ObjectID = "TDC-ZL-ye6"; */
+"TDC-ZL-ye6.normalTitle" = "تم";
+
+/* Class = "UILabel"; text = "model name"; ObjectID = "TKt-dw-5wY"; */
+"TKt-dw-5wY.text" = "model name";
+
+/* Class = "UILabel"; text = "Color :"; ObjectID = "TZM-9J-9lt"; */
+"TZM-9J-9lt.text" = "اللون :";
+"fUR-6R-Itu.title" = "تم";
+/* Class = "UILabel"; text = "I agree to eRent terms and conditions"; ObjectID = "Tec-yq-hrR"; */
+"Tec-yq-hrR.text" = "انا اوافق شروط واحكام eRent";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "TmV-ux-knp"; */
+"TmV-ux-knp.text" = "-";
+
+/* Class = "UILabel"; text = "Results"; ObjectID = "TyP-CS-8nn"; */
+"TyP-CS-8nn.text" = "نتائج";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "UCs-Wq-wYE"; */
+"UCs-Wq-wYE.title" = "ملفي";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "UCw-4h-zod"; */
+"UCw-4h-zod.text" = "-";
+
+/* Class = "UILabel"; text = "Model"; ObjectID = "Uj0-aG-NpN"; */
+"Uj0-aG-NpN.text" = "الموديل";
+
+/* Class = "UILabel"; text = "model name"; ObjectID = "Uxq-h4-4Qp"; */
+"Uxq-h4-4Qp.text" = "الموديل";
+
+/* Class = "UIButton"; normalTitle = "Resend"; ObjectID = "V63-9V-leX"; */
+"V63-9V-leX.normalTitle" = "اعادة ارسال";
+
+/* Class = "UIButton"; normalTitle = "Sign Up"; ObjectID = "VJq-W9-drX"; */
+"VJq-W9-drX.normalTitle" = "انشاء حساب";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "VPc-5b-44b"; */
+"VPc-5b-44b.text" = "-";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "XTd-Cy-Bka"; */
+"XTd-Cy-Bka.text" = "-";
+
+/* Class = "UILabel"; text = "Model :"; ObjectID = "XyP-2c-G1H"; */
+"XyP-2c-G1H.text" = "الموديل :";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "Y5P-ot-hlM"; */
+"Y5P-ot-hlM.text" = "-";
+
+/* Class = "UILabel"; text = "Forgot Your Password"; ObjectID = "Y7m-uT-cmi"; */
+"Y7m-uT-cmi.text" = "هل نسيت كلمة المرور؟";
+
+/* Class = "UILabel"; text = "Green"; ObjectID = "YAu-2o-jb9"; */
+"YAu-2o-jb9.text" = "Green";
+
+/* Class = "UILabel"; text = "Daily cost :"; ObjectID = "Ylj-4c-7Ik"; */
+
+"Ylj-4c-7Ik.text" = "التكلفة اليومية:";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "Z40-Mq-Xnc"; */
+"Z40-Mq-Xnc.text" = "-";
+
+/* Class = "UILabel"; text = "Pickup method"; ObjectID = "Z6N-gz-xYF"; */
+"Z6N-gz-xYF.text" = "طريقة الاستلام";
+
+/* Class = "UILabel"; text = "model name"; ObjectID = "Zld-Xx-h0X"; */
+"Zld-Xx-h0X.text" = "الموديل";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "alS-zy-SGL"; */
+"alS-zy-SGL.text" = "-";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "bhS-il-UE4"; */
+"bhS-il-UE4.placeholder" = "كلمة المرور";
+
+/* Class = "UISegmentedControl"; cI4-ry-FPG.segmentTitles[0] = "Accept"; ObjectID = "cI4-ry-FPG"; */
+"cI4-ry-FPG.segmentTitles[0]" = "موافقة";
+
+/* Class = "UISegmentedControl"; cI4-ry-FPG.segmentTitles[1] = "Reject"; ObjectID = "cI4-ry-FPG"; */
+"cI4-ry-FPG.segmentTitles[1]" = "رفض";
+
+/* Class = "UIButton"; normalTitle = "Book Now"; ObjectID = "cNK-uf-eQ7"; */
+"cNK-uf-eQ7.normalTitle" = "احجز الان";
+
+/* Class = "UILabel"; text = "Year :"; ObjectID = "d6o-Zz-Daw"; */
+"d6o-Zz-Daw.text" = "السنة :";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "dAh-NH-Jxm"; */
+"dAh-NH-Jxm.placeholder" = "اسم المستخدم/ رقم الهاتف";
+
+/* Class = "UILabel"; text = "Provider :"; ObjectID = "dK2-eQ-HoD"; */
+"dK2-eQ-HoD.text" = "المزود :";
+
+"Dmj-Qg-GhU.normalTitle" = "الدخول كضيف";
+
+"b0O-gQ-mop.text" = "سيتم اعادة ارسال الرمز بعد:";
+
+/* Class = "UILabel"; text = "Model :"; ObjectID = "dcb-Dg-CoT"; */
+"dcb-Dg-CoT.text" = "الموديل :";
+
+/* Class = "UILabel"; text = "Type :"; ObjectID = "e3l-GT-9Xw"; */
+"e3l-GT-9Xw.text" = "النوع :";
+
+/* Class = "UIButton"; normalTitle = "Sign up"; ObjectID = "e4J-6R-aSo"; */
+"e4J-6R-aSo.normalTitle" = "انشاء حساب";
+
+/* Class = "UILabel"; text = "Price"; ObjectID = "e4z-fn-yOe"; */
+"e4z-fn-yOe.text" = "السعر";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "e6d-sK-Dtq"; */
+"e6d-sK-Dtq.normalTitle" = "تسجيل الدخول";
+
+/* Class = "UILabel"; text = "Daily cost :"; ObjectID = "eFE-B4-Cgg"; */
+"eFE-B4-Cgg.text" = "التكلفة اليومية";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "eek-TI-rqn"; */
+"eek-TI-rqn.text" = "-";
+
+/* Class = "UIButton"; normalTitle = "Send"; ObjectID = "fEt-uN-X6j"; */
+"fEt-uN-X6j.normalTitle" = "ارسال";
+
+/* Class = "UILabel"; text = "Type :"; ObjectID = "fn9-7F-3Rn"; */
+"fn9-7F-3Rn.text" = "النوع :";
+
+/* Class = "UITabBarItem"; title = "Messages"; ObjectID = "g4T-4Z-ILh"; */
+"g4T-4Z-ILh.title" = "الرسائل";
+
+/* Class = "UILabel"; text = "Request"; ObjectID = "g6v-8W-G03"; */
+"g6v-8W-G03.text" = "طلباتي";
+
+/* Class = "UILabel"; text = "License Photo"; ObjectID = "gQh-aV-ien"; */
+"gQh-aV-ien.text" = "صورة الرخصة";
+
+/* Class = "UILabel"; text = "Color :"; ObjectID = "h10-IE-jeM"; */
+"h10-IE-jeM.text" = "اللون :";
+
+/* Class = "UIButton"; normalTitle = "Alert"; ObjectID = "h6F-5O-q26"; */
+"h6F-5O-q26.normalTitle" = "تنبيه";
+
+/* Class = "UITextField"; placeholder = "To Price"; ObjectID = "izO-0G-Y2Q"; */
+"izO-0G-Y2Q.placeholder" = "الى سعر";
+
+/* Class = "UILabel"; text = "Daily"; ObjectID = "jDW-8o-9qJ"; */
+"jDW-8o-9qJ.text" = "يومي";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "jMi-La-8GG"; */
+"jMi-La-8GG.placeholder" = "البريد الالكتروني";
+
+/* Class = "UILabel"; text = "Booking Date"; ObjectID = "jUW-7C-3uc"; */
+"jUW-7C-3uc.text" = "تاريخ الحجز";
+
+/* Class = "UILabel"; text = "Weekly"; ObjectID = "jiq-8z-DiM"; */
+"jiq-8z-DiM.text" = "اسبوعي";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "kH7-fW-lY3"; */
+"kH7-fW-lY3.placeholder" = "كلمة المرور";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "l14-iG-5oU"; */
+"l14-iG-5oU.text" = "-";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "lFh-fR-Xuc"; */
+"lFh-fR-Xuc.text" = "-";
+
+/* Class = "UILabel"; text = "Color :"; ObjectID = "lqp-xS-UlH"; */
+"lqp-xS-UlH.text" = "اللون :";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "lxY-Kb-DQq"; */
+"lxY-Kb-DQq.text" = "-";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "m9H-kh-MpY"; */
+"m9H-kh-MpY.text" = "-";
+
+/* Class = "UIButton"; normalTitle = "Send"; ObjectID = "mYv-dv-pZU"; */
+"mYv-dv-pZU.normalTitle" = "ارسال";
+
+/* Class = "UILabel"; text = "Model :"; ObjectID = "mfH-0u-JmZ"; */
+"mfH-0u-JmZ.text" = "الموديل :";
+
+/* Class = "UILabel"; text = "I agree to eRent terms and conditions"; ObjectID = "mrG-ZU-ELT"; */
+"mrG-ZU-ELT.text" = "انا اوافق شروط واحكام eRent";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "n50-LQ-l9P"; */
+"n50-LQ-l9P.text" = "-";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "nGe-aV-LNp"; */
+"nGe-aV-LNp.text" = "-";
+
+/* Class = "UILabel"; text = "Model :"; ObjectID = "nxf-xf-Lrf"; */
+"nxf-xf-Lrf.text" = "الموديل :";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "oAj-mI-kD9"; */
+"oAj-mI-kD9.text" = "-";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "oLQ-fd-RGL"; */
+"oLQ-fd-RGL.text" = "-";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "oT0-rV-UYu"; */
+"oT0-rV-UYu.text" = "-";
+
+/* Class = "UIButton"; normalTitle = "Sign In"; ObjectID = "op9-D7-Dmp"; */
+"op9-D7-Dmp.normalTitle" = "تسجيل الدخول";
+
+/* Class = "UILabel"; text = "12:00"; ObjectID = "pAX-h5-RA0"; */
+"pAX-h5-RA0.text" = "12:00";
+
+/* Class = "UILabel"; text = "Year :"; ObjectID = "pMc-jj-xYG"; */
+"pMc-jj-xYG.text" = "السنة :";
+
+/* Class = "UILabel"; text = "Daily cost :"; ObjectID = "pMd-d2-luP"; */
+"pMd-d2-luP.text" = "التكلفة اليومية:";
+
+/* Class = "UILabel"; text = "LabelLabelLabelLabelLabelLabellabel"; ObjectID = "q4n-y2-xfT"; */
+"q4n-y2-xfT.text" = "LabelLabelLabelLabelLabelLabellabel";
+
+/* Class = "UILabel"; text = "Reset Your Password"; ObjectID = "q9q-ZQ-epg"; */
+"q9q-ZQ-epg.text" = "تغيير كلمة المرور";
+
+/* Class = "UILabel"; text = "Provider :"; ObjectID = "qdh-i0-yj2"; */
+"qdh-i0-yj2.text" = "المزود :";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "qhe-r2-U3w"; */
+"qhe-r2-U3w.text" = "-";
+
+/* Class = "UILabel"; text = "Phone verification code"; ObjectID = "rnM-M4-toP"; */
+"rnM-M4-toP.text" = "تاكيد صحة الرقم";
+
+/* Class = "UITabBarItem"; title = "Offers"; ObjectID = "ryn-bH-6Pj"; */
+"ryn-bH-6Pj.title" = "العروض";
+
+/* Class = "UIButton"; normalTitle = "Close Booking         "; ObjectID = "sBQ-my-O9b"; */
+"sBQ-my-O9b.normalTitle" = "اغلاق الحجز";
+
+/* Class = "UITextField"; placeholder = "From Price"; ObjectID = "sec-m9-3Mr"; */
+"sec-m9-3Mr.placeholder" = "من سعر";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "tTW-2M-qC8"; */
+"tTW-2M-qC8.text" = "-";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "uAI-ZL-n5l"; */
+"uAI-ZL-n5l.placeholder" = "اسم المستخدم/ رقم الهاتف";
+
+
+"TBB-fV-co8.placeholder" = "الموضوع";
+"e7g-g6-F1o.placeholder" = "النص";
+"9RN-8t-d2J.placeholder" = "الاسم";
+"6Z2-Ri-633.placeholder" = "البريد الالكتروني";
+"SsP-dY-PiY.placeholder" = "رقم الهاتف";
+
+
+"dXd-sy-Vnj.placeholder" = "الاسم الكامل";
+
+/* Class = "UIButton"; normalTitle = "العربية"; ObjectID = "uTy-rI-IX0"; */
+"uTy-rI-IX0.normalTitle" = "العربية";
+
+/* Class = "UILabel"; text = "Time"; ObjectID = "vAW-Sy-yHl"; */
+"vAW-Sy-yHl.text" = "الوقت";
+
+/* Class = "UILabel"; text = "Type :"; ObjectID = "vEz-uI-00w"; */
+"vEz-uI-00w.text" = "النوع :";
+
+/* Class = "UILabel"; text = "Year :"; ObjectID = "vSF-Zg-faq"; */
+"vSF-Zg-faq.text" = "السنة :";
+
+/* Class = "UILabel"; text = "Your phone has been successfully verified"; ObjectID = "vUA-7a-MuQ"; */
+"vUA-7a-MuQ.text" = "تم التأكد من صحة رقمك";
+
+/* Class = "UILabel"; text = "2018"; ObjectID = "voD-Bu-V1f"; */
+"voD-Bu-V1f.text" = "2018";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "w3P-b5-qfh"; */
+"w3P-b5-qfh.text" = "-";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "wCU-n1-3px"; */
+"wCU-n1-3px.text" = "-";
+
+/* Class = "UITabBarItem"; title = "Home"; ObjectID = "wHS-n7-5Z9"; */
+"wHS-n7-5Z9.title" = "الرئيسية";
+
+/* Class = "UILabel"; text = "Provider :"; ObjectID = "wRl-5M-2Cx"; */
+"wRl-5M-2Cx.text" = "المزود :";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "xEy-Z2-vYK"; */
+"xEy-Z2-vYK.text" = "-";
+
+/* Class = "UILabel"; text = "Sign up"; ObjectID = "yfU-Iv-EvR"; */
+"yfU-Iv-EvR.text" = "انشاء حساب";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "zjQ-ha-FIh"; */
+"zjQ-ha-FIh.text" = "-";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "zmp-7U-OI8"; */
+"zmp-7U-OI8.text" = "-";

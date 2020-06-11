@@ -1,0 +1,39 @@
+1- So car list dosen't reqiure a Token.
+2- No API change
+3- No API change
+4- In view car (api/Car/Get) response {
+										..,
+										"OfficeLocation":
+										{
+											"Longitude":"24.51160",
+											"Latitude":"43.20153"
+										},
+										"OfficeMobile": "0539451424",
+									  }
+									  
+									  
+5- in close booking (api/Car/CloseBooking) I always check on comment.
+6- in register (api/account/signup) request {
+											..,
+											"Gender":1
+											}
+7- I added new api (api/Help/MessageContact) with request {
+															  "Data": {
+																"Subject": "string",
+																"Body": "string",
+																"Email": "string",
+																"Mobile": "string",
+																"Name": "string"
+															  },
+															  "ApplicationKey": "Test",
+															  "Token": "15151-gtr-059-grt",
+															  "Language": 0
+														  }
+
+8- In view car (api/Car/Get) response {
+										..,
+										"OfficeFlag":1
+									  }
+9- I didn't make any change here in api untile we receive confirmation from Apple.
+10- There is no API change.
+									  

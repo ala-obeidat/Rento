@@ -1,0 +1,126 @@
+﻿@model Rento.Entity.OrderAction
+@using Resources;
+@{
+    ViewBag.Title = "Action";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Resources.Resource.OrderNumber (@Model.CheckoutId)</h2>
+
+<div class="form-horizontal">
+    <hr />
+    <div class="form-group">
+        <label class="control-label col-md-2">@Resources.Resource.OfficeName :</label>
+        <div class="col-md-4">
+            <input readonly class="form-control" value="@Model.OfficeName" />
+        </div>
+        <label class="control-label col-md-2">@Resources.Resource.OfficeMobile :</label>
+        <div class="col-md-4">
+            <input readonly class="form-control" value="@Model.OfficeMobile" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">@Resources.Resource.CustomerUsername :</label>
+        <div class="col-md-4">
+            <input readonly class="form-control" value="@Model.CustomerUsername" />
+        </div>
+        <label class="control-label col-md-2">@Resources.Resource.CustomerName :</label>
+        <div class="col-md-4">
+            <input readonly class="form-control" value="@Model.CustomerFullName" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">@Resources.Resource.CustomerGender :</label>
+        <div class="col-md-4">
+            <input readonly class="form-control" value="@Resources.Resource.ResourceManager.GetString(Model.CustomerGender.ToString())" />
+        </div>
+        <label class="control-label col-md-2">@Resources.Resource.CustomerMobile :</label>
+        <div class="col-md-4">
+            <input readonly class="form-control" value="@Model.CustomerMobile" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">@Resources.Resource.CarName :</label>
+        <div class="col-md-4">
+            <input readonly class="form-control" value="@Model.CarName" />
+        </div>
+        <label class="control-label col-md-2">@Resources.Resource.Price :</label>
+        <div class="col-md-4">
+            <input readonly class="form-control" value="@Model.Price" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">@Resources.Resource.CustomerStar :</label>
+        <div class="col-md-4">
+            <input readonly class="form-control" value="@Model.CustomerStar" />
+        </div>
+        <label class="control-label col-md-2">@Resources.Resource.Reason :</label>
+        <div class="col-md-4">
+            <input readonly class="form-control" value="@Model.CustomerComment" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">@Resources.Resource.OfficeStar :</label>
+        <div class="col-md-4">
+            <input readonly class="form-control" value="@Model.OfficeStar" />
+        </div>
+        <label class="control-label col-md-2">@Resources.Resource.Reason :</label>
+        <div class="col-md-4">
+            <input readonly class="form-control" value="@Model.OfficeComment" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">@Resources.Resource.From :</label>
+        <div class="col-md-4">
+            <input readonly class="form-control" value="@Model.From.ToString("dd/MM/yyyy")" />
+        </div>
+        <label class="control-label col-md-2">@Resources.Resource.To :</label>
+        <div class="col-md-4">
+            <input readonly class="form-control" value="@Model.To.ToString("dd/MM/yyyy")" />
+        </div>
+    </div>
+</div>
+
+<hr />
+<h5>@Resources.Resource.Actions</h5>
+<table class="info-table table">
+    <thead>
+        <tr>
+            <th>
+                @Resource.Status
+            </th>
+            <th>
+                @Resource.Date
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            if (Model.Actions != null && Model.Actions.Count > 0)
+            {
+                foreach (var item in Model.Actions)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            <label class="control-label">@item.Date.ToString("dd/MM/yyyy hh:mm tt", System.Globalization.CultureInfo.CreateSpecificCulture("ar-AE"))</label>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td class="text-center" colspan="2">@Resource.EmptyTable</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<p>
+    <input type="button" onclick="redirectWithBaseUrl('Car/Create/'+'@Model.CarId')" value="@Resources.Resource.ViewCarInfo" class="btn btn-success" />
+    <input type="button" onclick="redirectWithBaseUrl('User/Index/'+'@Model.OfficeId')" value="@Resources.Resource.ViewOfficeInfo" class="btn btn-primary" />
+    @Html.ActionLink(Resources.Resource.Cancel, "Index", "Order", new { @class = "btn btn-danger" })
+</p>

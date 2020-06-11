@@ -1,0 +1,88 @@
+﻿@model Rento.UI.Models.ListAllCarModel
+@using Resources;
+@{
+    ViewBag.Title = Resource.Cars;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<input id="subTypeOptions" type="hidden" value="@Html.Raw(Model.CarSubType)" />
+<h2>@Resource.Cars</h2>
+<div id="gridContent">
+    <div id="searchDiv">
+        @if (Model != null)
+        {
+            if (Rento.UI.Shared.FixData.IsRTL)
+            {
+                <select id="CarType" onchange="typeChange()" class="form-control" title="@Resource.CarType">
+                    <option value="0">@Resource.CarType</option>
+                    @foreach (var item in Model.CarType)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+                <select id="CarSubType" class="form-control" title="@Resource.CarSubType">
+                    <option value="0">@Resource.CarSubType</option>
+                   
+                </select>
+                <select id="City" class="form-control" title="@Resource.City">
+                    <option value="0">@Resource.City</option>
+                    @foreach (var item in Model.Cities)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+
+            }
+            else
+            {
+                <select id="CarType" onchange="typeChange()" class="form-control" title="@Resource.CarType">
+                    <option value="0">@Resource.CarType</option>
+                    @foreach (var item in Model.CarType)
+                    {
+                    <option value="@item.Id">@item.NameEn</option>
+                    }
+                </select>
+                <select id="CarSubType" class="form-control" title="@Resource.CarSubType">
+                    <option value="0">@Resource.CarSubType</option>
+                   
+                </select>
+                <select id="City" class="form-control" title="@Resource.City">
+                    <option value="0">@Resource.City</option>
+                    @foreach (var item in Model.Cities)
+                    {
+                    <option value="@item.Id">@item.NameEn</option>
+                    }
+                </select>
+            }
+            <select id="Year" class="form-control" title="@Resource.Model">
+                <option value="0">@Resource.Model</option>
+                <option value="2018">2018</option>
+                <option value="2017">2017</option>
+                <option value="2016">2016</option>
+                <option value="2015">2015</option>
+                <option value="2014">2014</option>
+                <option value="2013">2013</option>
+                <option value="2013">2012</option>
+                <option value="2013">2011</option>
+                <option value="2013">2010</option>
+                <option value="2013">2009</option>
+            </select>
+            <select id="ProviderId" class="form-control" title="@Resource.OfficeName">
+                <option value="">@Resource.OfficeName</option>
+                @foreach (var item in Model.Providers)
+                    {
+                <option value="@item.Id">@item.Name</option>
+                    }
+            </select>
+        }
+        <input id="searchBtn" class="form-control btn btn-primary" type="button" value="@Resources.Resource.Search" />
+    </div>
+    <div id="grid"></div>
+</div>
+@section scripts{
+    <script>
+        var _office = '@Resource.OfficeName';
+        var _carSubType = '@Resource.CarSubType';
+    </script>
+    @Scripts.Render("~/Bundle/CarList")
+}
+

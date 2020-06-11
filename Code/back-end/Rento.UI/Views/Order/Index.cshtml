@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Rento.Entity.Order>
+@using Resources;
+
+@{
+
+    ViewBag.Title = Resources.Resource.Orders;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>@Resource.Orders</h2>
+<div id="gridContent">
+    <div id="searchDiv">
+        <input id="searchId" class="form-control"  placeholder="@Resources.Resource.Number" />
+        <input id="searchBtn" class="form-control btn btn-primary" type="button" value="@Resources.Resource.Search"/>
+    </div>
+    <div id="grid"></div>
+</div>
+@section scripts{
+    
+@Scripts.Render("~/Bundle/OrderIndex")
+
+}

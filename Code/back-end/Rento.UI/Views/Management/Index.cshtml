@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Rento.Entity.BaseNameEntity<Rento.Entity.UserType>>
+
+@{
+    ViewBag.Title = Resources.Resource.Management;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Resources.Resource.Management</h2>
+
+<p>
+    @Html.ActionLink(Resources.Resource.Add, "Create",null, new { @class = "btn btn-default" })
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Resources.Resource.Username
+            </th>
+            <th>
+                @Resources.Resource.Status
+            </th>
+            <th>
+
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <label>
+                    @Resources.Resource.ResourceManager.GetString(item.ExternalData.ToString())
+                </label>
+            </td>
+            
+               
+                @if (item.ExternalData == Rento.Entity.UserType.Active || item.ExternalData == Rento.Entity.UserType.Blocked)
+                {
+                    <td>
+                        <a href="@Url.Action("Index", "User", new { id = item.Id })" class="btn btn-success">@Resources.Resource.Details</a> |
+                        <a href="@Url.Action("Update", new { id = item.Id, type = (int)item.ExternalData })" class="btn btn-danger">@Resources.Resource.BlockUser</a>
+                    </td>
+                }
+                else
+                {
+                    <td></td>
+                }
+            <td>
+                <a href="javaScript:adminLogin(@item.Id)" class="btn btn-primary">@Resources.Resource.Login</a> 
+            </td>
+        </tr>
+    }
+
+</table>
+
+<script>
+    var _passwordKey = '@ViewBag.PasswordKey';
+    function adminLogin(userId) {
+        showPrompt('@Resources.Resource.InsertYourPassword', _okText, _cancelText, function(data){
+            ajaxCall(getRequestModel(true, _baseUrl + 'Account/AdminLogin', {
+                RequestUserId: userId
+                ,Key:_passwordKey
+                ,Password: encodeWithBase64(data, _passwordKey)
+            }, function (data) {
+                if (data.ErrorCode == 0) {
+                    showAlert(data.Message, _okText, function () {
+                        showLoader();
+                        location.href = data.URL;
+                    }, _noteText);
+                }
+                else
+                    showSide('Error', data.Message);
+            }));
+        }, function(){}, _noteText) 
+    }
+</script>

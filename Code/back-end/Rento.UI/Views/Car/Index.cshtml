@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Rento.UI.Models.CarModel>
+@using Resources;
+@{
+
+    ViewBag.Title = Resources.Resource.Cars;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Rento.UI.Shared.FixData.IsRTL)
+{
+    @Styles.Render("~/assets/Car/ListAr");
+}
+else
+{
+    @Styles.Render("~/assets/Car/List");
+}
+
+<h2>@Resource.Cars</h2>
+
+<p>
+
+    @Html.ActionLink(@Resource.Add + " " + @Resource.Car, "Create", new { id = 0 }, new { @class = "btn btn-success" })
+</p>
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Resource.CarType
+            </th>
+            <th>
+                @Resource.CarSubType
+            </th>
+            <th>
+                @Resource.Status
+            </th>
+            <th>
+                @Resource.CreateDate
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    @{
+        if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TypeName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SubTypeName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreateDate)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Create",new { id =item.Id})" class="btn btn-success">@Resources.Resource.Details</a> 
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td class="text-center" colspan="4">@Resource.EmptyTable</td>
+            </tr>
+        }
+
+    }
+
+</table>

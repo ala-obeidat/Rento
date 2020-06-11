@@ -1,0 +1,6 @@
+framework module Pods_ERent {
+  umbrella header "Pods-ERent-umbrella.h"
+
+  export *
+  module * { export * }
+}

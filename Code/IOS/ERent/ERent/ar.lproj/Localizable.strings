@@ -1,0 +1,176 @@
+/* 
+  Localizable.strings
+  ERent
+
+  Created by Rexxer on 4/28/18.
+  Copyright © 2018 Rexxer. All rights reserved.
+*/
+
+"app_name"="E-Rent";
+"login"="تسجيل الدخول";
+"logout"="تسجيل الخروج";
+"user_name"="الاسم";
+"password"="كلمة المرور";
+"register"="انشاء حساب";
+"forgot_password"="هل نسيت كلمة المرور؟";
+"email"="البريد الالكتروني";
+"phone"="رقم الهاتف";
+"birthdate"="تاريخ الميلاد";
+"country"="الدولة";
+"city"="المدينة";
+"identifier_number"="رقم الهوية";
+"contact_us" = "تواصل معنا";
+"home_title"="الرئيسية";
+"requests_title"="طلباتي";
+"offers_title"="العروض";
+"messages_title"="الرسائل";
+"profile_title"="ملفي";
+"type_title"="النوع :";
+"model_title"="الموديل :";
+"year_title"="السنة :";
+"color_title"="اللون :";
+"address_title"="العنوان :";
+"book_now"="احجز الان";
+"call"="اتصل";
+"close_booking"="اغلاق الحجز";
+"alert"="تنبيه";
+"must_login" = "يجب عليك تسجيل الدخول او انشاء حساب اولا";
+"date_title"="التاريخ :";
+"time_title"="الوقت :";
+"status_title"="الحالة :";
+"price_title"="السعر :";
+"office_title"="المكتب :";
+"provider_name_title"="المزود :";
+"status"="الحالة";
+"welcome"="أهلا بك";
+"confirm_booking"="تاكيد الطلب";
+"description"="الوصف";
+"kilo_number"="عدد الكيلومترات";
+"daily"="يومي";
+"weekly"="اسبوعي";
+"monthly"="شهري";
+"cost"="التكلفة";
+
+"verify_phone_title" = "سنقوم بارسال رمز التحقق لهذا الرقم، الرجاء تاكيد صحة الرقم";
+"confirm" = "تم";
+"edit" = "تعديل";
+
+"user not active" = "الحساب غير مفعل";
+
+"kilo"="كم";
+"accept_agreement"="يجب عليك قبول الشروط والاحكام";
+"choose_method"="اختر طريقة استلام";
+"code_resent_successfully" = "تم ارسال رمز التاكيد";
+"SAR"="ر.س";
+"fullname_error" = "ادخل الاسم الكامل اولا!";
+"choose_type"="اختر النوع";
+"choose_model"="اختر الموديل";
+"select_type_first"="اختر نوع السيارة اولا";
+"from_date_error"="اختر بداية فترة الحجز";
+"to_date_error"="اختر نهاية فترة الحجز";
+"kilo_cost"="تكلفة الكيلومترات";
+"kilo_free"="ال كم المجاني";
+"book_this_car"="احجز هذه السيارة";
+"favourites"="المفضلة";
+"history"="طلباتي السابقة";
+"settings"="الاعدادت";
+"receive_notifications"="استلام الاشعارات";
+"change_app_language"="تغيير اللغة الى";
+"forgot_password_title"="نسيت كلمة المرور";
+"send"="ارسال";
+"phone_code_verification"="تاكيد صحة الرقم";
+"verification_code"="رمز التاكيد";
+"submit"="تاكيد";
+"resend"="اعادة ارسال";
+"from"="من";
+"to"="الى";
+"type"="النوع";
+"color"="اللون";
+"model"="الموديل";
+"search"="بحث";
+"profile_photo"="صورة الملف";
+"identifier_photo"="صورة الهوية";
+"license_photo"="صورة الرخصة";
+"choose_country"="اختر الدولة";
+"loading"="جاري التحميل…";
+"username_error"="ادخل اسم صحيح";
+"password_error"="ادخل كلمة مرور صحيحة";
+"passwords_error"="ادخل كلمة مرور صحيحة ومتوافقة";
+"email_error"="ادخل بريد الكتروني صحيح";
+"phone_error"="ادخل رقم هاتف صحيح مثال (05xxxxxxxx)";
+"birth_error"="اختر تاريخ ميلادك";
+"country_error"="اختر الدولة";
+"city_error"="اختر المدينة";
+"identifier_error"="ادخل رقم هوية صحيح";
+"verification_code_error"="ادخل رمز تاكيد صحيح";
+"code_not_correct"="رقم التاكيد غير صحيح";
+"choose_color"="اختر اللون";
+"no_match"="البحث لا يطابق اي سيارة";
+"Terms And Conditions" = "الشروط والأحكام";
+"search_here"="ابحث هنا…";
+"add_identifier_photo"="اضف صورة الهوية";
+"add_licence_photo"="اضف صورة الرخصة";
+"password_reset_successfully"="تم اعادة تعيين كلمة المرور";
+"registered_successfully"="تم انشاء حساب بنجاح";
+"hallah" = " هللة";
+"booking_date"="تاريخ الحجز";
+"pick_up_method"="طريقة الاستلام";
+"pickup"="استلام من المكتب";
+"delivery"="التوصيل للموقع";
+"agree_conditions"="انا اوافق شروط واحكام eRent";
+"car_information"="معلومات السيارة";
+
+"pending"="قيد التنفيذ";
+"processing"="قيد التشغيل";
+"approved"="تم الموافقة";
+"on_the_way"="في التوصيل";
+"delivered"="تم التوصيل";
+"done"="تم";
+"rejected"="مرفوض";
+
+"take_photo"="التقط صورة";
+"choose_photo"="اختر من المعرض";
+"cancel"="الغاء";
+"Enter comment first!" = "ادخل السبب اولا!";
+"booking_closed"="تم اغلاق الحجز بنجاح";
+"from_price"="من سعر";
+"to_price"="الى سعر";
+"from_date"="من تاريخ";
+"to_date"="الى تاريخ";
+"user_doesnt_exist"="اسم المستخدم غير متوفر";
+"reset_password_title"="تغيير كلمة المرور";
+
+"car_renting"="استاجر سيارة";
+"choose_city"="اختر المدينة";
+"confirm_password"="تاكيد كلمة المرور";
+"car_booked_successfully"="تم حجز السيارة بنجاح";
+
+"male" = "ذكر";
+"female" = "انثى";
+
+"subject_error" = "ادخل عنوان اولا!";
+"body_error" = "ادخل نص اولا!";
+"name_error" = "ادخل اسم اولا!";
+"mail_error" = "ادخل بريد الكتروني اولا!";
+"phone_error2" = "ادخل رقم هاتف اولا!";
+
+"Your messages has been sent successfully." = "تم الارسال بنجاح";
+
+"Change language" = "تغير اللغة";
+
+"App will restart to change language" = "سيتم اغلاق التطبيق لتغير اللغة";
+"OK" = "موافق";
+
+"Cancel" = "الغاء";
+
+"Add Image" = "اضف صورة";
+"Take Photo" = "التقط صورة";
+"Select from library" = "اختر من المجلد";
+
+"Please seelct your preferred language" = "الرجاء اختيار لغتك المفضلة";
+
+"Select Country" = "اختر الدولة";
+"Select City" = "اختر المدينة";
+
+
+"Please select type first" = "الرجاء اختيار نوع السيارة";

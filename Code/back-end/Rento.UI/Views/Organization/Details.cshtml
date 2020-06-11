@@ -1,0 +1,47 @@
+﻿@model Rento.Entity.Organization
+
+@{
+    ViewBag.Title = Resources.Resource.Organization;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Resources.Resource.Organization</h2>
+
+
+@using (Html.BeginForm("Save", "Organization", FormMethod.Post, new { id = "mainForm", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>@Resources.Resource.Details</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Name">@Resources.Resource.Name</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control required" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="@Resources.Resource.Save" class="btn btn-success" />
+                @Html.ActionLink(Resources.Resource.Cancel, "Index", "Organization", new { @class = "btn btn-danger" })
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#mainForm').submit(function () {
+                sendPostRequest('Organization/Index');
+                return false;
+            });
+        })
+    </script>
+}

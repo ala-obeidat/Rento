@@ -1,0 +1,202 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html dir="@(Rento.UI.Shared.FixData.IsRTL ? "rtl" : "ltr")">
+<head>
+    <meta charset="utf-8" />
+    <meta name="release-version" content="@Rento.Entity.Constant.BUILD_VERSION" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="address=no" />
+    <title>@ViewBag.Title - @Resources.Resource.Rento</title>
+
+</head>
+<body>
+    <div id="o-m-loader">
+        <div class="m-loader"></div>
+        <div class="m-opacity"></div>
+    </div>
+    <div style="z-index: 2222; position: absolute; top: 0;">
+        <img width="100" height="105" src="~/assets/images/logo.PNG" />
+    </div>
+    <div class="navbar navbar-fixed-top">
+
+        <div class="container">
+            <div class="navbar-header">
+                @{
+                    var routeValues = this.ViewContext.RouteData.Values;
+                    var newRouteValues = new RouteValueDictionary();
+
+                    foreach (var item in routeValues)
+                    {
+                        newRouteValues.Add(item.Key, item.Value);
+                    }
+
+                    if (Rento.UI.Shared.FixData.IsRTL)
+                    {
+                        @Styles.Render("~/assets/MainAr");
+
+                        newRouteValues["language"] = "en";
+                        var url = string.Format("{0}/{1}/{2}", "en", routeValues["controller"].ToString(), routeValues["action"].ToString());
+
+                        if (routeValues.ContainsKey("id"))
+                        {
+                            url = string.Format("{0}/{1}", url, routeValues["id"].ToString());
+                        }
+
+                        var queryString = string.Empty;
+                        if (Request.QueryString.Count > 0)
+                        {
+                            var array = (from key in Request.QueryString.AllKeys
+                                         from value in Request.QueryString.GetValues(key)
+                                         select string.Format("{0}={1}", HttpUtility.UrlEncode(key), HttpUtility.UrlEncode(value))).ToArray();
+                            queryString = "?" + string.Join("&", array);
+                        }
+
+                        var href = url + queryString;
+
+                        <a class="lang-link" onclick="redirectWithBaseUrl('@href')" href="#">
+                            <span> English </span>
+                        </a>
+
+                    }
+                    else
+                    {
+                        @Styles.Render("~/assets/Main");
+                        newRouteValues["language"] = "ar";
+                        var url = string.Format("{0}/{1}/{2}", "ar", routeValues["controller"].ToString(), routeValues["action"].ToString());
+
+                        if (routeValues.ContainsKey("id"))
+                        {
+                            url = string.Format("{0}/{1}", url, routeValues["id"].ToString());
+                        }
+
+                        var queryString = string.Empty;
+                        if (Request.QueryString.Count > 0)
+                        {
+                            var array = (from key in Request.QueryString.AllKeys
+                                         from value in Request.QueryString.GetValues(key)
+                                         select string.Format("{0}={1}", HttpUtility.UrlEncode(key), HttpUtility.UrlEncode(value))).ToArray();
+                            queryString = "?" + string.Join("&", array);
+                        }
+
+                        var href = url + queryString;
+
+
+                        <a class="lang-link" onclick="redirectWithBaseUrl('@href')" href="#">
+                            <span style=""> عربي </span>
+                        </a>
+                    }
+                }
+                
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+
+                    @switch (Rento.UI.Shared.FixData.UserType)
+                    {
+                        case Rento.Entity.UserType.Pending:
+                            <li>@Html.ActionLink(Resources.Resource.Profile, "Index", "User")</li>
+                            <li>@Html.ActionLink(Resources.Resource.Messages, "Index", "Message")</li>
+                            break;
+                        case Rento.Entity.UserType.Active:
+                            <li>@Html.ActionLink(Resources.Resource.Profile, "Index", "User")</li>
+                            <li>@Html.ActionLink(Resources.Resource.Cars, "Index", "Car")</li>
+                            <li>@Html.ActionLink(Resources.Resource.Messages, "Index", "Message")</li>
+                            <li>@Html.ActionLink(Resources.Resource.Orders, "Index", "Order")</li>
+                            break;
+                        case Rento.Entity.UserType.Blocked:
+                            if (Rento.UI.Shared.FixData.IsLogin)
+                            {
+                                <li>@Html.ActionLink(Resources.Resource.Messages, "Index", "Message")</li>
+                            }
+                            break;
+                        case Rento.Entity.UserType.Administrator:
+                            <li>@Html.ActionLink(Resources.Resource.Management, "Index", "Management")</li>
+                            <li>@Html.ActionLink(Resources.Resource.Organizations, "Index", "Organization")</li>
+                            <li>@Html.ActionLink(Resources.Resource.MobileCustomer, "Index", "MobileCustomer")</li>
+                            <li>@Html.ActionLink(Resources.Resource.CarTypes, "ListType", "Car")</li>
+                            <li>@Html.ActionLink(Resources.Resource.MobileNotification, "MobileNotification", "Message")</li>
+                            <li>@Html.ActionLink(Resources.Resource.SmsMessage, "SMS", "Message")</li>
+                            break;
+
+                        case Rento.Entity.UserType.Operation:
+                            <li>@Html.ActionLink(Resources.Resource.Management, "Index", "Management")</li>
+                            <li>@Html.ActionLink(Resources.Resource.MobileCustomer, "Index", "MobileCustomer")</li>
+                            <li>@Html.ActionLink(Resources.Resource.Orders, "Index", "Order")</li>
+                            <li>@Html.ActionLink(Resources.Resource.Cars, "ListAll", "Car")</li>
+                            <li>@Html.ActionLink(Resources.Resource.SmsMessage, "SMS", "Message")</li>
+                            break;
+                        default:
+                            break;
+                    }
+                    @if (!(Rento.UI.Shared.FixData.UserType == Rento.Entity.UserType.Operation || Rento.UI.Shared.FixData.UserType == Rento.Entity.UserType.Administrator))
+                    {
+                        <li>@Html.ActionLink(Resources.Resource.Contact, "Contact", "Account")</li>
+                    }
+                    @if (Rento.UI.Shared.FixData.IsLogin)
+                    {
+                        <li>@Html.ActionLink(Resources.Resource.Logout, "Logout", "Account")</li>
+                        <li style="color:white;font-weight:bolder">@string.Format(Resources.Resource.Welcome,Rento.UI.Shared.FixData.UserName)</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="tableLoc">
+        <input type="hidden" value="@Resources.Resource.EmptyTable" id="emptyTableLoc" />
+        <input type="hidden" value="@Resources.Resource.ShowingCount" id="showingCountLoc" />
+        <input type="hidden" value="@Resources.Resource.LengthMenu" id="lengthMenuLoc" />
+        <input type="hidden" value="@Resources.Resource.Processing" id="processing" />
+        <input type="hidden" value="@Resources.Resource.Searching" id="searchingLoc" />
+        <input type="hidden" value="@Resources.Resource.DeleteConfirm" id="deleteMessage" />
+        <input type="hidden" value="@Resources.Resource.DeleteConfirmMessage" id="deleteConfirmMessage" />
+        <input type="hidden" value="@Resources.Resource.SortDescinding" id="SortDescinding" />
+        <input type="hidden" value="@Resources.Resource.ClickToSort" id="Sorting" />
+        <input type="hidden" value="@Resources.Resource.SortAscinding" id="SortAscinding" />
+        <input type="hidden" value="@Resources.Resource.Yes" id="yes" />
+        <input type="hidden" value="@Resources.Resource.No" id="no" />
+        <input type="hidden" value="10" id="gridPageSize" />
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - @Resources.Resource.Rento</p>
+        </footer>
+    </div>
+    
+    <script>
+        var _baseUrl = window.location.protocol + '//' + window.location.host + '@Rento.Helper.ConfigurationFileHelper.GetAppSettingString("DEFAULT_ROOT")';
+        var _isRtl = '@Rento.UI.Shared.FixData.IsRTL' == 'True';
+        var _userType = '@Rento.UI.Shared.FixData.UserType';
+        var _lan = _isRtl ? 'ar' : 'en';
+        var _requiredTxt = '@Resources.Resource.RequiredField';
+        var _deleteTxt = '@Resources.Resource.Delete';
+        var _addTxt = '@Resources.Resource.Add';
+        var _editTxt = '@Resources.Resource.Edit';
+        var _documentText = '_documentText';
+        var _propertiesText = '_documentText';
+        var _DeleteText = _deleteTxt;
+        var _orderPage = _userType != 'Active';
+        var _name = '@Resources.Resource.Name';
+        var _carName = '@Resources.Resource.CarName';
+        var _status = '@Resources.Resource.Status';
+        var _from = '@Resources.Resource.From';
+        var _to = '@Resources.Resource.To';
+        var _createDate = '@Resources.Resource.CreateDate';
+        var _number = '@Resources.Resource.Number';
+        var _generalErrorMessage = '@Resources.Resource.GeneralError';
+        var _generalSuccess = '@Resources.Resource.GeneralSuccess';
+        var _okText = '@Resources.Resource.Ok';
+        var _cancelText = '@Resources.Resource.Cancel';
+        var _noteText = '@Resources.Resource.Note';
+        var _errorText = '@Resources.Resource.Error';
+    </script>
+    @Scripts.Render("~/bundles/MainJs")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

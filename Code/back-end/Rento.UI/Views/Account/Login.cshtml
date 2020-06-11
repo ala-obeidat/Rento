@@ -1,0 +1,109 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html dir="@(Rento.UI.Shared.FixData.IsRTL ? "rtl" : "ltr")">
+<head>
+    <meta charset="utf-8" />
+    <meta name="release-version" content="@Rento.Entity.Constant.BUILD_VERSION" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="address=no" />
+    <title>@Resources.Resource.Rento - @Resources.Resource.Login</title>
+ 
+</head>
+<body>
+    <div class="title">
+        @*<span class="spanTitle">@Resources.Resource.Rento</span>*@
+        <img width="150" height="150" src="~/assets/images/logo3.png" />
+        <div class="navbar-header">
+            @{
+        var routeValues = this.ViewContext.RouteData.Values;
+        var newRouteValues = new RouteValueDictionary();
+
+        foreach (var item in routeValues)
+        {
+            newRouteValues.Add(item.Key, item.Value);
+        }
+
+        if (Rento.UI.Shared.FixData.IsRTL)
+        {
+
+            newRouteValues["language"] = "en";
+            var url = string.Format("{0}/{1}/{2}", "en", routeValues["controller"].ToString(), routeValues["action"].ToString());
+
+            if (routeValues.ContainsKey("id"))
+            {
+                url = string.Format("{0}/{1}", url, routeValues["id"].ToString());
+            }
+
+            var queryString = string.Empty;
+            if (Request.QueryString.Count > 0)
+            {
+                var array = (from key in Request.QueryString.AllKeys
+                             from value in Request.QueryString.GetValues(key)
+                             select string.Format("{0}={1}", HttpUtility.UrlEncode(key), HttpUtility.UrlEncode(value))).ToArray();
+                queryString = "?" + string.Join("&", array);
+            }
+
+            var href = url + queryString;
+
+            <a onclick="redirectWithBaseUrl('@href')" href="#">
+                <span> English </span>
+            </a>
+
+}
+else
+{
+    newRouteValues["language"] = "ar";
+    var url = string.Format("{0}/{1}/{2}", "ar", routeValues["controller"].ToString(), routeValues["action"].ToString());
+
+    if (routeValues.ContainsKey("id"))
+    {
+        url = string.Format("{0}/{1}", url, routeValues["id"].ToString());
+    }
+
+    var queryString = string.Empty;
+    if (Request.QueryString.Count > 0)
+    {
+        var array = (from key in Request.QueryString.AllKeys
+                     from value in Request.QueryString.GetValues(key)
+                     select string.Format("{0}={1}", HttpUtility.UrlEncode(key), HttpUtility.UrlEncode(value))).ToArray();
+        queryString = "?" + string.Join("&", array);
+    }
+
+    var href = url + queryString;
+
+
+        <a onclick="redirectWithBaseUrl('@href')" href="#">
+            <span style="font-family: 'Droid Arabic Kufi'"> عربي </span>
+        </a>
+}
+            }
+        </div>
+    </div>
+    
+    <form onsubmit="checkSubmit()" class="login-block" id="loginForm" action="@Url.Action("LoginPost","Account")" method="post">
+        <h1>@Resources.Resource.Login</h1>
+        <input type="text" name="Username" placeholder="@Resources.Resource.Username" id="username" />
+        <input type="password" name="Password" value="" placeholder="@Resources.Resource.Password" id="password" />
+        <input id="error" value="@ViewBag.Error" />
+        <input type="hidden" id="Key" name="Key" value="@ViewBag.PasswordKey" />
+        <input type="submit" class="submitBtn" value="@Resources.Resource.Login" />
+    </form>
+    @if (Rento.UI.Shared.FixData.IsRTL)
+    {
+        @Styles.Render("~/assets/LoginAr");
+    }
+    else
+    {
+        @Styles.Render("~/assets/Login");
+    }
+    <script src="~/assets/js/login.js"></script>
+    <script>
+        var _baseUrl = window.location.protocol + '//' + window.location.host + '@Rento.Helper.ConfigurationFileHelper.GetAppSettingString("DEFAULT_ROOT")';
+        var _lan = '@Rento.UI.Shared.FixData.IsRTL' == 'True' ? 'ar' : 'en';
+    </script>
+</body>
+</html>

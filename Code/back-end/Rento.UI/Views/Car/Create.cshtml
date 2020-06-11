@@ -1,0 +1,301 @@
+﻿@model Rento.UI.Models.CarDetailModel
+
+@{
+    ViewBag.Title = Resources.Resource.Add + " " + Resources.Resource.Car;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (Rento.UI.Shared.FixData.IsRTL)
+{
+    @Styles.Render("~/assets/Car/SaveAr");
+}
+else
+{
+    @Styles.Render("~/assets/Car/Save");
+}
+<h2>@Resources.Resource.Add @Resources.Resource.Car</h2>
+
+@using (Html.BeginForm("Save", "Car", FormMethod.Post, new { id = "mainForm", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id)
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label col-md-4" for="Type">@Resources.Resource.CarType</label>
+                    <div class="col-md-8">
+                        <select id="Type" onchange="typeChange()" name="Type" class="form-control">
+                            @{
+                                if (Rento.UI.Shared.FixData.IsRTL)
+                                {
+                                    foreach (var item in ViewBag.Type)
+                                    {
+                                        <option @(Model != null && Model.Type == item.Id ? "selected" : "" ) value="@item.Id">@item.Name</option>
+                                    }
+                                }
+                                else
+                                {
+                                    foreach (var item in ViewBag.Type)
+                                    {
+                                        <option @(Model != null && Model.Type == item.Id ? "selected" : "" ) value="@item.Id">@item.NameEn</option>
+                                    }
+                                }
+
+                            }
+                        </select>
+                        @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4" for="Type">@Resources.Resource.CarSubType</label>
+                    <div class="col-md-8">
+                        <select id="SubType" onchange="subTypeChange()" name="SubType" class="form-control">
+                            @{
+                                if (Rento.UI.Shared.FixData.IsRTL)
+                                {
+                                    foreach (var item in ViewBag.ModelSubType)
+                                    {
+                                        <option @(Model != null && Model.SubType == item.Id ? "selected" : "" ) value="@item.Id">@item.Name</option>
+                                    }
+                                }
+                                else
+                                {
+                                    foreach (var item in ViewBag.ModelSubType)
+                                    {
+                                        <option @(Model != null && Model.SubType == item.Id ? "selected" : "" ) value="@item.Id">@item.NameEn</option>
+                                    }
+                                }
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4" for="Type">@Resources.Resource.Model</label>
+                    <div class="col-md-8">
+                        <select id="Model" name="Model" class="form-control">
+                            <option @(Model == null || Model.Model == 2018 ? "selected" : "") value="2018">2018</option>
+                            <option @(Model != null && Model.Model == 2017 ? "selected" : "") value="2017">2017</option>
+                            <option @(Model != null && Model.Model == 2016 ? "selected" : "") value="2016">2016</option>
+                            <option @(Model != null && Model.Model == 2015 ? "selected" : "") value="2015">2015</option>
+                            <option @(Model != null && Model.Model == 2014 ? "selected" : "") value="2014">2014</option>
+                            <option @(Model != null && Model.Model == 2013 ? "selected" : "") value="2013">2013</option>
+                            <option @(Model != null && Model.Model == 2012 ? "selected" : "") value="2013">2012</option>
+                            <option @(Model != null && Model.Model == 2011 ? "selected" : "") value="2013">2011</option>
+                            <option @(Model != null && Model.Model == 2010 ? "selected" : "") value="2013">2010</option>
+                            <option @(Model != null && Model.Model == 2009 ? "selected" : "") value="2013">2009</option>
+                        </select>
+                        @Html.ValidationMessageFor(model => model.Model, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4" for="Color">@Resources.Resource.Color</label>
+                    <div class="col-md-8">
+                        <input value="@(Model==null? "fff":Model.Color.Replace("#",""))" placeholder="@Resources.Resource.SetColor" class="form-control jscolor {onFineChange:'setTextColor(this)'}" />
+                        <input id="Color" name="Color" type="hidden" class="form-control required" value="#fff" />
+                        @Html.ValidationMessageFor(model => model.Color, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <img id="carIcon" width="400" height="200" onerror="this.src='/assets/images/cars/other.png'" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Status">@Resources.Resource.Status</label>
+            <div class="col-md-4">
+                <select id="Status" name="Status" onchange="checkCarStatus()" class="form-control">
+                    @foreach (var item in ViewBag.StatusOption)
+                    {
+                        <option @(Model != null && (int)Model.Status == item.Id ? "selected" : "") value="@item.Id">
+                            @item.Name
+                        </option>
+                    }
+                </select>
+                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+            </div>
+
+
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="DayCost">@Resources.Resource.DayCost</label>
+            <div class="col-md-2">
+                @Html.EditorFor(model => model.DayCost, new { htmlAttributes = new { @class = "form-control required" } })
+                @Html.ValidationMessageFor(model => model.DayCost, "", new { @class = "text-danger" })
+            </div>
+            <label class="control-label col-md-2" for="WeekCost">@Resources.Resource.WeekCost</label>
+            <div class="col-md-2">
+                @Html.EditorFor(model => model.WeekCost, new { htmlAttributes = new { @class = "form-control required" } })
+                @Html.ValidationMessageFor(model => model.WeekCost, "", new { @class = "text-danger" })
+            </div>
+            <label class="control-label col-md-2" for="MonthCost">@Resources.Resource.MonthCost</label>
+            <div class="col-md-2">
+                @Html.EditorFor(model => model.MonthCost, new { htmlAttributes = new { @class = "form-control required" } })
+                @Html.ValidationMessageFor(model => model.MonthCost, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="KiloNumber">@Resources.Resource.KiloNumber</label>
+            <div class="col-md-2">
+                @Html.EditorFor(model => model.KiloNumber, new { htmlAttributes = new { @class = "form-control required" } })
+                @Html.ValidationMessageFor(model => model.KiloNumber, "", new { @class = "text-danger" })
+            </div>
+            <label class="control-label col-md-2" for="KiloLimit">@Resources.Resource.KiloLimit</label>
+            <div class="col-md-2">
+                @Html.EditorFor(model => model.KiloLimit, new { htmlAttributes = new { @class = "form-control required" } })
+                @Html.ValidationMessageFor(model => model.KiloLimit, "", new { @class = "text-danger" })
+            </div>
+            <label class="control-label col-md-2" for="AdditinalKiloCost">@Resources.Resource.AdditinalKiloCost</label>
+            <div class="col-md-2">
+                @Html.EditorFor(model => model.AdditinalKiloCost, new { htmlAttributes = new { @class = "form-control required" } })
+                @Html.ValidationMessageFor(model => model.AdditinalKiloCost, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Description">@Resources.Resource.Description</label>
+            <div class="col-md-10">
+                <textarea style="min-width:778px;height:200px" class="form-control" id="Description" name="Description">@(Model == null || string.IsNullOrEmpty(Model.Description) ? "" : Model.Description)</textarea>
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div id="imageDiv" class="form-group">
+            <label class="control-label col-md-2">@Resources.Resource.AdditinalPhoto</label>
+            @{
+                if (Model != null && Model.ImageIds != null)
+                {
+                    for (int i = 0; i < Model.ImageIds.Count; i++)
+                    {
+                        <div data-imageId="@Model.ImageIds[i]" class="image-items" id="itemImage_@i">
+                            <img width="150" height="150" src="@Url.Action("GetImage","Image",new {id= Model.ImageIds[i]})" />
+                            <input onclick="removeImage(@i)" class="btn btn-danger" title="@Resources.Resource.Delete" value="x" />
+                        </div>
+                    }
+                }
+            }
+            <input class="has-target" data-preview="imageDiv" type="file" id="ImagesData" accept="image/*" name="ImagesData" multiple="multiple" />
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @if (Rento.UI.Shared.FixData.UserType != Rento.Entity.UserType.Operation)
+                {
+                    <input type="submit" value="@Resources.Resource.Save" class="btn btn-success" />
+                    @Html.ActionLink(Resources.Resource.Cancel, "Index", "Car", new { @class = "btn btn-danger" })
+                }
+                else
+                {
+                    @Html.ActionLink(Resources.Resource.Back, "ListAll", "Car", new { @class = "btn btn-primary" })
+                }
+
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="DeletedImageIds" name="DeletedImageIds" />
+                }
+
+<input id="subTypeOptions" type="hidden" value="@Html.Raw(ViewBag.SubType)" />
+<input id="TypeOptions" type="hidden" value="@Html.Raw(ViewBag.TypeJSON)" />
+
+@section scripts{
+    <script src="~/assets/plugin/JsColor/jscolor.js"></script>
+    <script>
+        var _carOldStatus = '@(Model==null?0: (int)Model.Status)';
+        var _carWaringMessage = '@Resources.Resource.CarStatusWarning';
+        function checkCarStatus() {
+            if(_carOldStatus=='1')
+            {
+                if($('#Status').val()=='0')
+                {
+                    showConfirm2(_carWaringMessage, $('#yes').val(), $('#no').val(), function ()
+                    {
+                        ajaxCall(getRequestModel(true, _baseUrl + 'Car/ChangeStatus?id=' + $('#Id').val(), null, function (data) {
+                            if (data.ErrorCode == 0) 
+                                showSide();
+                            else
+                                showSide('Error',data.Message);
+                        }, null, 'GET'));
+                    }, function ()
+                    {
+                        $('#Status').val('1');
+                    }, _noteText);
+                }
+            }
+        }
+        var _deletedImageIds = [];
+        $(document).ready(function () {
+            subTypeChange();
+        });
+        $('#mainForm').submit(function () {
+            if (_deletedImageIds.length)
+                $('#DeletedImageIds').val(_deletedImageIds);
+            sendPostRequest('Car/Index');
+            return false;
+        });
+        function removeImage(index, withoutPush) {
+            if (withoutPush) {
+                var items = document.getElementsByClassName('image-item-added');
+                var itemIds = [];
+                for (var i = 0; i < items.length; i++) {
+                    itemIds.push($(items[i]).attr('id'));
+                }
+                for (var j = 0; j < itemIds.length; j++) {
+                    $('#'+itemIds[j]).remove();
+                }
+                $('#ImagesData').val('');
+            }
+            else {
+                _deletedImageIds.push($('#itemImage_' + index).data('imageid'));
+                $('#itemImage_' + index).remove();
+            }
+        }
+        function setTextColor(picker) {
+            document.getElementById('Color').value = '#' + picker.toString();
+        }
+        function typeChange() {
+            var options = JSON.parse(document.getElementById('subTypeOptions').value.replace(/'/gi, '"'));
+            var typeItem = document.getElementById('SubType');
+            var typeValue = document.getElementById('Type').value;
+            var targetOption = '';
+            if (options) {
+                for (var i = 0; i < options.length; i++) {
+                    if (options[i].ExternalData == typeValue)
+                        targetOption += '<option value="' + options[i].Id + '">' + (_isRtl ? options[i].Name : options[i].NameEn) + '</option>';
+                }
+            }
+            typeItem.innerHTML = targetOption;
+            targetOption = null;
+            subTypeChange();
+        }
+        function subTypeChange() {
+            var subTypeValue = document.getElementById('SubType').value;
+            var typeValue = document.getElementById('Type').value;
+            var subTypeObject = JSON.parse(document.getElementById('subTypeOptions').value.replace(/'/gi, '"'));
+            var typeObject = JSON.parse(document.getElementById('TypeOptions').value.replace(/'/gi, '"'));
+            var typeText = '';
+            var subTypeText = '';
+            for (var i = 0; i < subTypeObject.length; i++) {
+                if (subTypeObject[i].Id == subTypeValue) {
+                    subTypeText = subTypeObject[i].NameEn.toLowerCase();
+                    break;
+                }
+            }
+            for (var i = 0; i < typeObject.length; i++) {
+                if (typeObject[i].Id == typeValue) {
+                    typeText = typeObject[i].NameEn.toLowerCase();
+                    break;
+                }
+            }
+            document.getElementById('carIcon').setAttribute('src', _baseUrl + 'assets/images/cars/' + typeText + '/' + subTypeText + '.png');
+        }
+    </script>
+}
+
+

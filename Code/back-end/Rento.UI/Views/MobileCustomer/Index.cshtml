@@ -1,0 +1,51 @@
+﻿@using Resources;
+
+@{
+
+    ViewBag.Title = Resources.Resource.MobileCustomer;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>@Resource.MobileCustomer</h2>
+<div id="gridContent">
+    <div id="searchDiv">
+        <input style="width:30%" id="Name" class="form-control search-criteria" placeholder="@Resources.Resource.UsernameOrName" />
+        <input id="Mobile" class="form-control search-criteria" placeholder="@Resources.Resource.Mobile" />
+        <select id="Type" class="form-control">
+            <option selected value="0">@Resources.Resource.All</option>
+            <option value="1">@Resources.Resource.Android</option>
+            <option value="2">@Resources.Resource.iPhone</option>
+        </select>
+        <input id="searchBtn" class="form-control btn btn-primary" type="button" value="@Resources.Resource.Search" />
+    </div>
+    <div id="grid"></div>
+</div>
+<div id="updateUserDiv" class="hidden">
+    <div>
+        <div class="form-group">
+            <label class="control-label col-md-2">@Resources.Resource.Status</label>
+            <div class="col-md-10">
+                <select class="form-control" id="updateFlag" name="Flag" onchange="flagSelectChange()">
+                    <option value="10">@Resources.Resource.Pending</option>
+                    <option value="11">@Resources.Resource.Active</option>
+                    <option value="12">@Resources.Resource.Blocked</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group" id="messageDiv">
+            <label class="control-label col-md-2">@Resources.Resource.Reason</label>
+            <div class="col-md-10">
+                <textarea style="min-width:378px;height:170px" class="form-control" id="updateMessage" name="Message"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+        var _userName = '@Resources.Resource.Username';
+        var _mobile = '@Resources.Resource.Mobile';
+        var _type = '@Resources.Resource.Type';
+        var _updateStatus = '@Resources.Resource.UpdateStats';
+    </script>
+    @Scripts.Render("~/Bundle/CustomerMobileIndex")
+
+}

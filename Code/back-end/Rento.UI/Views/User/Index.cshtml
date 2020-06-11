@@ -1,0 +1,426 @@
+﻿@model Rento.UI.Models.UserInfo
+
+@{
+    ViewBag.Title = Resources.Resource.Profile;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (Rento.UI.Shared.FixData.IsRTL)
+{
+    @Styles.Render("~/assets/User/UpdateAr");
+    <style>
+        #locDiv > label {
+            text-align: right !important;
+        }
+    </style>
+
+}
+else
+{
+    @Styles.Render("~/assets/User/Update");
+    <style>
+        #locDiv > label {
+            text-align: left !important;
+        }
+    </style>
+}
+<style>
+    #locDiv > label {
+        display: list-item;
+    }
+</style>
+<h2>@Resources.Resource.Profile</h2>
+<input type="hidden" value="@ViewBag.City" id="allCities" />
+<input type="hidden" value="@Html.Raw(ViewBag.Places)" id="placesInput" />
+@if (!ViewBag.FromOthers)
+{
+    <input type="button" class="btn btn-primary" id="changePasswordBtn" value="@Resources.Resource.ChangePassword" />
+}
+@using (Html.BeginForm("ChangePassword", "User", FormMethod.Post, new { id = "changePasswordForm", enctype = "multipart/form-data", style = ViewBag.ChangePasswordError != null && !string.IsNullOrEmpty(ViewBag.ChangePasswordError) ? "" : "display:none" }))
+{
+    @Html.AntiForgeryToken()
+    <input type="hidden" value="@ViewBag.PasswordKey" id="PasswordKey" name="PasswordKey" />
+    <div class="form-horizontal">
+        <hr />
+        <div class="form-group">
+            <label class="control-label col-md-2" for="OldPassword">@Resources.Resource.OldPassword</label>
+            <div class="col-md-4">
+                <input type="password" id="OldPassword" name="OldPassword" class="form-control required" />
+            </div>
+            <label class="control-label col-md-2" for="NewPassword">@Resources.Resource.NewPassword</label>
+            <div class="col-md-4">
+                <input type="password" id="NewPassword" name="NewPassword" class="form-control required" />
+            </div>
+        </div>
+        <label class="text-danger">@ViewBag.ChangePasswordError</label>
+        <div class="col-md-6">
+            <input type="submit" value="@Resources.Resource.Save" class="btn btn-success" />
+        </div>
+    </div>
+
+}
+@using (Html.BeginForm("Save", "User", FormMethod.Post, new { id = "mainForm", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <input type="hidden" value="@(Model==null? 0 : Model.Id)" name="Id" id="Id" />
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="CountryId">@Resources.Resource.Country</label>
+            <div class="col-md-4">
+                <select class="form-control" name="CountryId" id="CountryId">
+                    @{
+                        if (Model == null)
+                        {
+                            foreach (var item in ViewBag.Country)
+                            {
+                                <option @(item.Id == 1 ? "selected" : "") value="@item.Id">@(Rento.UI.Shared.FixData.IsRTL ? item.Name : item.NameEn)</option>
+                            }
+                        }
+                        else
+                        {
+                            foreach (var item in Model.Country)
+                            {
+                                <option @(item.Id == Model.CountryId ? "selected" : "") value="@item.Id">@(Rento.UI.Shared.FixData.IsRTL ? item.Name : item.NameEn)</option>
+                            }
+                        }
+                    }
+                </select>
+                @Html.ValidationMessageFor(model => model.CountryId, "", new { @class = "text-danger" })
+            </div>
+            <label class="control-label col-md-2" for="CityId">@Resources.Resource.City</label>
+            <div class="col-md-4">
+                <select id="CityId" name="CityId" class="form-control">
+                    @{
+                        if (Model == null)
+                        {
+                            foreach (var item in ViewBag.ModelCity)
+                            {
+                                <option @(item.Id == 1 ? "selected" : "") value="@item.Id">@(Rento.UI.Shared.FixData.IsRTL ? item.Name : item.NameEn)</option>
+                            }
+                        }
+                        else
+                        {
+                            foreach (var item in Model.City)
+                            {
+                                <option @(item.Id == Model.CityId ? "selected" : "") value="@item.Id">@(Rento.UI.Shared.FixData.IsRTL ? item.Name : item.NameEn)</option>
+                            }
+                        }
+                    }
+                </select>
+                @Html.ValidationMessageFor(model => model.CityId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="OrganizationId">@Resources.Resource.Organization</label>
+            <div class="col-md-4">
+                <select class="form-control" name="OrganizationId" id="OrganizationId">
+                    @{
+                        <option @(Model == null || Model.Organization == null ? "selected" : "") value="0">@Resources.Resource.None</option>
+                        if (Model == null)
+                        {
+                            if (ViewBag.Organization != null)
+                            {
+                                foreach (var item in ViewBag.Organization)
+                                {
+                                    <option value="@item.Id">@item.Name</option>
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if (Model.Organization != null)
+                            {
+                                foreach (var item in Model.Organization)
+                                {
+                                    <option @(item.Id == Model.OrganizationId ? "selected" : "") value="@item.Id">@item.Name</option>
+                                }
+                            }
+                        }
+                    }
+                </select>
+                @Html.ValidationMessageFor(model => model.OrganizationId, "", new { @class = "text-danger" })
+            </div>
+            <label class="control-label col-md-2" for="Name">@Resources.Resource.OfficeName</label>
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control required" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Mobile">@Resources.Resource.Mobile</label>
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.Mobile, new { htmlAttributes = new { @class = "form-control required" } })
+                @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })
+            </div>
+            <label class="control-label col-md-2" for="Phone">@Resources.Resource.Phone</label>
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control required" } })
+                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Name">@Resources.Resource.DeliverToHome</label>
+            <div class="col-md-4" id="placesParentDiv">
+                <input class="big-checkbox" id="Flag" value="2" name="Flag" type="checkbox" @(Model != null && (Model.Flag & Rento.Entity.UserFlag.DELIVER_TO_HOME) == Rento.Entity.UserFlag.DELIVER_TO_HOME ? "checked" : "") />
+            </div>
+        </div>
+        <hr />
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Phone">@Resources.Resource.Location</label>
+
+            <div id="locDiv" class="col-md-2">
+                <label class="control-label">LATITUDE </label>
+                @Html.EditorFor(model => model.Latitude, new { htmlAttributes = new { @class = "form-control required", id = "Latitude", placeholder = "Latitude" } })
+                <label class="control-label">LONGITUDE </label>
+                @Html.EditorFor(model => model.Longitude, new { htmlAttributes = new { @class = "form-control required", id = "Longitude", placeholder = "Longitude" } })
+                <br />
+                @if (!ViewBag.FromOthers &&(Model==null || string.IsNullOrEmpty(Model.Longitude)))
+                {
+                    <a class="btn btn-primary" href="javascript:getMyLocation()">@Resources.Resource.AutoDetect</a>
+                }
+            </div>
+            <div class="col-md-8" style="">
+                <div id="map" style="width:700px;height:300px"></div>
+            </div>
+        </div>
+        <hr />
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Logo">@Resources.Resource.Logo</label>
+            <div class="col-md-2">
+                <input type="file" class="has-target" data-target="logoImage" accept="image/*" id="LogoFile" name="LogoFile" />
+                <img id="logoImage" width="150" height="150" src="@Url.Action("GetImage","Image",new {id=Model==null ? 0: Model.LogoId })" />
+                @Html.ValidationMessageFor(model => model.Logo, "", new { @class = "text-danger" })
+            </div>
+            <label class="control-label col-md-2" for="Licence">@Resources.Resource.Licence</label>
+            <div class="col-md-2">
+                <input type="file" data-target="licenceImage" accept="image/*" id="LicenceFile" class="has-target file-required" data-message="@Resources.Resource.LicenceError" name="LicenceFile" />
+                <img id="licenceImage" width="150" height="150" src="@Url.Action("GetImage","Image",new {id=Model==null ? 0: Model.LicenceId })" />
+                @Html.ValidationMessageFor(model => model.Licence, "", new { @class = "text-danger" })
+            </div>
+            <label class="control-label col-md-1" for="refarmeCardImage">@Resources.Resource.RefarmeCard</label>
+            <div class="col-md-2">
+                <input type="file" data-target="refarmeCardImage" class="file-required has-target" data-message="@Resources.Resource.RefarmeCardError" accept="image/*" id="RefarmeCardFile" name="RefarmeCardFile" />
+                <img id="refarmeCardImage" width="150" height="150" src="@Url.Action("GetImage","Image",new {id=Model==null ? 0: Model.RefarmeCardId })" />
+                @Html.ValidationMessageFor(model => model.RefarmeCard, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+        @if (!ViewBag.FromOthers)
+        {
+            <div class="col-md-6">
+                <input type="submit" value="@Resources.Resource.Save" class="btn btn-success" />
+            </div>
+        }
+    </div>
+    <input type="hidden" value="" id="PlacesString" name="PlacesString" />
+                        }
+@section scripts{
+    <script>
+        var _places = [];
+        var _deletedPlaces = [];
+        $(document).ready(function () {
+            if ('@ViewBag.FromOthers' == 'True') {
+                setTimeout(function () {
+                    getMyLocation(true);
+                }, 1000);
+            }
+            else
+            {
+                if($('#Longitude').val() && $('#Longitude').val().length>2)
+                    setTimeout(function () {
+                        getLocation();
+                    }, 1000);
+            }
+            $('#mainForm').submit(function () {
+                if (_places.length)
+                    $('#PlacesString').val(_places);
+                sendPostRequest(null,'mainForm');
+                return false;
+            });
+            $('#changePasswordForm').submit(function () {
+                
+                var key = $('#PasswordKey').val();
+                $('#OldPassword').val(encodeWithBase64($('#OldPassword').val(), key));
+                $('#NewPassword').val(encodeWithBase64($('#NewPassword').val(), key));
+                sendPostRequest(null,'changePasswordForm');
+                return false;
+            });
+            $('#changePasswordBtn').click(function () {
+                $('#changePasswordForm').show();
+            });
+
+            if ($('#placesInput').val()) {
+
+                var places = JSON.parse($('#placesInput').val().replace(/'/gi, '"'));
+                var options = '';
+                var itemSelected = '';
+                if (places) {
+
+                    for (var i = 0; i < places.length; i++) {
+                        if (places[i].Selected) {
+                            _places.push(places[i].Id);
+                            _deletedPlaces[places[i].Id] = places[i].Name;
+                            itemSelected += '<div class="added-item" id="item_' + places[i].Id + '"> <span>' + places[i].Name + '</span> <span class="item delete-item" onclick="removeItem(' + places[i].Id + ')" title="' + '@Resources.Resource.Delete' + '"> X </span></div>';
+                        }
+                        else
+                            options += '<option value="' + places[i].Id + '">' + places[i].Name + '</option>';
+                    }
+                }
+                $('#placesId').append('<div><select class="form-control" id="itemSelect">' + options + '<select></div><div><span class="add-item item" onclick="addNewItem()" title="' + '@Resources.Resource.Add' + '"> + </span></div>');
+                $('#placesId').append(itemSelected);
+            }
+
+            if (!$('#Flag').prop('checked'))
+                $('#placesId').hide();
+            $('#Flag').change(function () {
+                $('#placesId').toggle();
+            })
+        });
+        function addNewItem() {
+            var selectedValue = $('#itemSelect').val();
+            if (_places.indexOf(selectedValue) != -1)
+                return;
+            _places.push(selectedValue);
+            var selectedText = $('#itemSelect option[value=' + selectedValue + ']').text();
+            _deletedPlaces[selectedValue] = selectedText;
+            $('#placesId').append('<div class="added-item" id="item_' + _places.length + '"> <span>' + selectedText + '</span> <span class="item delete-item" onclick="removeItem(' + _places.length + ')" title="' + '@Resources.Resource.Delete' + '"> X </span></div>');
+            $('#itemSelect option[value=' + selectedValue + ']').remove();
+        }
+        function removeItem(index) {
+            _places.splice(index, 1);
+            $('#item_' + index).remove();
+            $('#itemSelect').append('<option value="' + index + '">' + _deletedPlaces[index] + '</option>');
+        }
+
+
+
+
+        var map, infoWindow;
+        function getMyLocation(inserted) {
+            var s = document.createElement("script");
+            s.async = true;
+            s.defer = true;
+            if (inserted)
+                s.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBF29JzKCLybUTkZfyP9T4XFeEMGQxiifY&language=ar&callback=initMapInserted";
+            else
+                s.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBF29JzKCLybUTkZfyP9T4XFeEMGQxiifY&language=ar&callback=initMap";
+            $("body").append(s);
+        }
+        function getLocation() {
+            var s = document.createElement("script");
+            s.async = true;
+            s.defer = true;
+            s.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBF29JzKCLybUTkZfyP9T4XFeEMGQxiifY&language=ar&callback=initLocationMap";
+            $("body").append(s);
+        }
+        // Note: This example requires that you consent to location sharing when
+        // prompted by your browser. If you see the error "The Geolocation service
+        // failed.", it means you probably did not give permission for the browser to
+        // locate you.
+        
+        function initLocationMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: -34.397, lng: 150.644 },
+                zoom: 15
+            });
+            infoWindow = new google.maps.InfoWindow;
+
+            // Try HTML5 geolocation.
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var pos = {
+                        lat:Number(document.getElementById('Latitude').value),
+                        lng: Number(document.getElementById('Longitude').value)
+                    };
+
+                    infoWindow.setPosition(pos);
+                    infoWindow.setContent('@Resources.Resource.LocationChange');
+                    infoWindow.open(map);
+                    map.setCenter(pos);
+                    marker = new google.maps.Marker({
+                        map: map,
+                        draggable: true,
+                        position: { lat: pos.lat, lng: pos.lng },
+                        title: '@Resources.Resource.LocationTitle'
+                    });
+                    marker.addListener('drag', handleEvent);
+                    marker.addListener('dragend', handleEvent);
+                }, function () {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                });
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
+        }
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: -34.397, lng: 150.644 },
+                zoom: 15
+            });
+            infoWindow = new google.maps.InfoWindow;
+
+            // Try HTML5 geolocation.
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+
+                    infoWindow.setPosition(pos);
+                    infoWindow.setContent('@Resources.Resource.LocationFound');
+                    infoWindow.open(map);
+                    map.setCenter(pos);
+                    document.getElementById('Latitude').value = pos.lat;
+                    document.getElementById('Longitude').value = pos.lng;
+                    marker = new google.maps.Marker({
+                        map: map,
+                        draggable: true,
+                        position: { lat: pos.lat, lng: pos.lng },
+                        title: '@Resources.Resource.LocationTitle'
+                    });
+                    marker.addListener('drag', handleEvent);
+                    marker.addListener('dragend', handleEvent);
+                    
+
+                    console.log("Postion", pos);
+                }, function () {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                });
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
+        }
+        function handleEvent(event) {
+            document.getElementById('Latitude').value = event.latLng.lat();
+            document.getElementById('Longitude').value = event.latLng.lng();
+        }
+        function initMapInserted() {
+            var loc = { lat: Number($('#Latitude').val()), lng: Number($('#Longitude').val()) };
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: loc,
+                zoom: 15
+            });
+            var marker = new google.maps.Marker({
+                map: map,
+                position: loc
+            });
+        }
+
+
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
+                                  '@Resources.Resource.LocationFaild' :
+                                  '@Resources.Resource.BrowserLocationDosenotSupport');
+            infoWindow.open(map);
+            document.getElementById('Latitude').value = '';
+            document.getElementById('Longitude').value = '';
+        }
+    </script>
+}

@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Rento.Entity.BaseNameEntity>
+
+@using Resources;
+@{
+
+    ViewBag.Title = Resources.Resource.CarTypes;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Rento.UI.Shared.FixData.IsRTL)
+{
+    @Styles.Render("~/assets/Car/ListAr");
+}
+else
+{
+    @Styles.Render("~/assets/Car/List");
+}
+
+<h2>@Resource.CarTypes</h2>
+
+<p>
+
+    @Html.ActionLink(Resource.Add + " " + Resource.CarType, "TypeDetails", new { id = 0 }, new { @class = "btn btn-default" })
+</p>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Resource.Name
+        </th>
+        <th>
+            @Resource.NameEn
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    @{
+        if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NameEn)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("TypeDetails",new { id =item.Id})" class="btn btn-success">@Resources.Resource.Details</a> |
+                        <a href="@Url.Action("ListSubType",new { id =item.Id})" class="btn btn-primary">@Resources.Resource.CarSubTypes</a> |
+                        <a href="javaScript:sendGetRequest('Car', 'TypeDelete',@item.Id)" class="btn btn-danger">@Resources.Resource.Delete</a> 
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td class="text-center" colspan="2">@Resource.EmptyTable</td>
+            </tr>
+        }
+
+    }
+</table>

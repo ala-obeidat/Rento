@@ -1,0 +1,195 @@
+**Base Request and Response for connected to service.
+*Request:
+	- ApplicationKey(string): contains key for using application (pass it now as "Test".
+	- Language(int): Determine what language user use and for response message localization.
+		0 : Arabic.
+		1 : English.
+	- Token(string): Request Token (get from login).
+	- Data(object): Request data object.
+
+*Response: 
+	- ErrorCode(int): Error number code from service.
+	- Message(string): Error response message (localized ).
+	- Success(boolean): True if process is done correctly.
+	- Data(object): Result response data.
+	
+*API URL:	
+	http://www.erentservice.ashhalan.com/api/[controller]/[action]
+	All requests are HTTP POST
+---------------------------------------------------------------------------------------------------
+1) Login:
+	- URL: api/Account/Login
+	- Request Data:
+		- Username(string): username or mobile number for user to be login with it.
+		- Password(string): password for make login.
+		- Customer(boolean): you must set it as true for determine that you are customer.
+	- Response Data:
+		- Id(int): witch is user login Id.
+		- Type(int): user type.
+		- Token(string): login token for use in another request for this user session.
+=================================================		
+2) Forget password:
+	- URL: api/Account/ForgetPassword
+	- Request Data(string): username for user to be reset password for it.
+	- Response Data(string): Token for reset password.
+=================================================		
+3) Reset password:
+	- URL: api/Account/ResetPassword
+	- Request Data:
+		- Code(int): code from Mobile SMS (get after forget password).
+		- NewPassword(string):new password for user to be updated
+		- Customer(boolean): you must set it as true for determine that you are customer.
+	- Response Data:
+		
+=================================================		
+4) Sign up:
+	- URL: api/Account/SignUp
+	- Request Data:
+		- CityId(int): Id of city user chose from system cities.
+		- Mobile(string): mobile number for user.
+		- Username(string): username for make login.
+		- Password(string): password for make login.
+		- DOP(determine): data for user birth day.
+		- Flag(int): for future use (for now just pass it as 0).
+		- IdentifierId(int): Id number for user.
+		- LicenceId(int): Id of drive license for user.
+		- Identifier(object): 
+			- Content(byte[]): image array of bytes.
+		- Licence(object): 
+			- Content(byte[]): image array of bytes.
+			
+	- Response Data:
+=================================================		
+5) Verification:
+	- URL: api/Account/Verification
+	- Request Data:
+		- Code(int): code from Mobile SMS (get after sign up).
+	- Response Data:
+=================================================		
+6) List Offers:
+	- URL: api/Offer/List
+	- Request Data:
+	- Response Data(list of object):
+	    - CarType(int): car type from system car types list (eg: Hayndai, Kia).
+		- CarSubType(int): car type from system car types list( eg: Accent, Rio).
+		- CarModel(int): car model (eg: 2017, 2018 ..).
+		- ProviderName: name of office created this offer.
+		- Id(int): witch is offer Id number.
+		- Period(int): day periods for this offer.
+		- From(datetime): date start the offer.
+		- To(datetime): date end the offer.
+		- Cost(int): cost of this car with in this period in the offer.
+		- Discount(int): Offer discount on base cost.
+=================================================		
+7) Search cars:
+	- URL: api/Car/List
+	- Request Data:
+		- CityId(int): City id for system cities.
+		- Color(string): color number for search car with it (eg: #ff0ed4).
+		- MinPrice(int): minimum price for search with it.
+		- MaxPrice(int): maximum price for search with it.
+		- Ascending(bool): true if you want order cars with price ascending, otherwise descending.
+		- Sort(bool): True if you want to order cars by price or not.
+		- Model(int): Car model year.
+        - Type(int): Car system type number.
+		- SubType(int): Car system sub-type number.
+	- Response Data(list of object):
+	    - Id(int): witch is car Id.
+		- Color(string): Same as request.
+		- DayCost(int): Cost of this car per day.
+		- OfficeMobile(string): mobile number of car office.
+		- OfficeName(string): name of car office.
+		- Type(int): same as request.
+		- SubType(int): same as request.
+		- Model(int): same as request.
+=================================================		
+8) User Requests:
+	- URL: api/Car/ListRequest
+	- Request Data(boolean):
+		True if you want history done requests.
+	- Response Data (list of object):	
+		- SubType(int): --.
+		- Type(int): --.
+		- Model(int): --.
+		- Price(int): Total price request from user for this operation.
+		- OfficeName(string): --.
+		- CreateDate(datetime): date time for this request.
+		- Action(int):
+			* Pending = 0,
+			* Processing = 1,
+			* Approved = 2,
+			* OnTheWay = 3,
+			* Delivered = 4,
+			* Done = 5,
+			* Rejected=6
+==================================================
+9) List system messages:
+	- URL: api/Message/List
+	- Request Data:
+	- Response Data (list of object):	
+		- Id(int): Id of message on the system.
+		- Body(string): Message body.
+		- CreateDate(datetime): Message create date.
+==========================================================
+10) Get System Car Types:
+	- URL: api/LookUp/List
+	- Request Data(string): must send here as "Type"
+	- Response Data (list of object):	
+		- Id(int): Id of this type on the system.
+		- Name(string): Type Arabic name.
+		- NameEn(string): Type English name.
+===========================================================
+11) Get System Countries:
+	- URL: api/LookUp/List
+	- Request Data(string): must send here as "Country"
+	- Response Data (list of object):	
+		- Id(int): Id of this Country on the system.
+		- Name(string): Country Arabic name.
+		- NameEn(string): Country English name.
+===========================================================
+12) Get System Cities:
+	- URL: api/LookUp/ListExternal
+	- Request Data(string): must send here as "City"
+	- Response Data (list of object):	
+		- Id(int): Id of this City on the system.
+		- Name(string): City Arabic name.
+		- NameEn(string): City English name.
+		- ExternalData(int): Country Id for this city.
+===========================================================
+13) Get System Car Sub Types:
+	- URL: api/LookUp/ListExternal
+	- Request Data(string): must send here as "SubType"
+	- Response Data (list of object):	
+		- Id(int): Id of this SubType on the system.
+		- Name(string): SubType Arabic name.
+		- NameEn(string): SubType English name.
+		- ExternalData(int): Type Id for this SubType.
+===========================================================
+14) Check out Car (booking):
+	- URL: api/Car/Checkout
+	- Request Data: 
+		- CarId(int): Car Id for make check out on it.
+		- Price(int): Car total price from rent period.
+		- From(DateTime): Begin date rent the car.
+		- To(DateTime): End date of rent the car.
+		- Flag(int): 
+			* GetFromOffice=0,
+			* DeliverToMyLocation =1,
+		- Location(object):
+			-  Degree(decimal): the location degree.
+			-  Minute(decimal): the location minute.
+			  
+	- Response Data(int): check out Id for use in close this checkout.	
+===========================================================
+15) Close booking and give us feed back:
+	- URL: api/Car/CloseBooking
+	- Request Data: 
+		- CheckoutId(int): Id from check out process.
+		- Star(int): 1-5 to determine goodness of office.
+		- Comment(string): Feedback comments and its required.
+		- Flag(int): 
+			* Done=2,
+			* Reject =3,
+			  
+	- Response Data:
+===========================================================

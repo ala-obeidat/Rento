@@ -1,0 +1,63 @@
+﻿@model Rento.Entity.UpdateUserFlagRequest
+
+@{
+    ViewBag.Title = Resources.Resource.BlockUser;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Resources.Resource.Management</h2>
+
+
+@using (Html.BeginForm("UpdateFlag", "Management", FormMethod.Post, new { id = "mainForm", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>@Resources.Resource.BlockUser</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <input type="hidden" id="UserId" name="UserId" value="@Model.UserId" />
+        <div class="form-group">
+            <label class="control-label col-md-2">@Resources.Resource.Status</label>
+            <div class="col-md-10">
+                <select class="form-control" id="Flag" name="Flag" onchange="flagSelectChange()">
+                    <option @(Model.Flag == (int)Rento.Entity.UserType.Pending ? "selected" : "") value="0">@Resources.Resource.Pending</option>
+                    <option @(Model.Flag == (int)Rento.Entity.UserType.Active ? "selected" : "") value="1">@Resources.Resource.Active</option>
+                    <option @(Model.Flag == (int)Rento.Entity.UserType.Blocked ? "selected" : "") value="2">@Resources.Resource.Blocked</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group" id="messageDiv">
+            <label class="control-label col-md-2">@Resources.Resource.Reason</label>
+            <div class="col-md-10">
+                <textarea style="min-width:778px;height:200px" class="form-control" id="Message" name="Message">@(Model == null ? "" : Model.Message)</textarea>
+                @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="@Resources.Resource.Save" class="btn btn-default" />
+                @Html.ActionLink(Resources.Resource.Cancel, "Index", "Management", new { @class = "btn btn-default" })
+            </div>
+        </div>
+    </div>
+}
+
+
+
+@section Scripts {
+    <script>
+        $('#mainForm').submit(function () {
+            sendPostRequest('Management/Index');
+            return false;
+        });
+
+        function flagSelectChange() {
+            if ($('#Flag').val() != 1)
+                $('#messageDiv').show();
+            else
+                $('#messageDiv').hide();
+        }
+    </script>
+}

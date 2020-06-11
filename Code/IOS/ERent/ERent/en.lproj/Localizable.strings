@@ -1,0 +1,176 @@
+/* 
+  Localizable.strings
+  ERent
+
+  Created by Rexxer on 4/28/18.
+  Copyright © 2018 Rexxer. All rights reserved.
+*/
+
+"app_name"="E-Rent";
+"login"="Login";
+"logout"="Logout";
+"user_name"="Username";
+"password"="Password";
+"register"="Register";
+"forgot_password"="forgot your password?";
+"email"="Email";
+"phone"="Phone Number";
+"birthdate"="birth date";
+"country"="Country";
+"city"="City";
+"identifier_number"="Identifier Number";
+"fullname_error" = "Enter full name first!";
+"must_login" = "You must login or register to use this action";
+"home_title"="Home";
+"code_resent_successfully" = "Verification code has been sent";
+"contact_us" = "Contact us";
+"requests_title"="Requests";
+"offers_title"="Offers";
+"messages_title"="Messages";
+
+"verify_phone_title" = "We will send verification code to this number, please confirm it's correct";
+"confirm" = "Confirm";
+"edit" = "Edit";
+
+"user not active" = "user is not active";
+
+
+"profile_title"="Profile";
+"type_title"="Type :";
+"model_title"="Model :";
+"year_title"="Year :";
+"color_title"="Color :";
+"address_title"="Address :";
+"book_now"="Book Now";
+"call"="Call";
+"close_booking"="Close booking";
+"alert"="Alert";
+"date_title"="Date :";
+"time_title"="Time :";
+"status_title"="Status :";
+"price_title"="Price :";
+"office_title"="Office :";
+"provider_name_title"="Provider :";
+"status"="Status";
+"welcome"="Welcome";
+"confirm_booking"="Confirm Booking";
+"description"="Description";
+"kilo_number"="Kilo Number";
+"daily"="Daily";
+"weekly"="Weekly";
+"monthly"="Monthly";
+"cost"="Cost";
+"kilo"="KM";
+"accept_agreement"="You have to accept E-Rent terms and conditions";
+"choose_method"="Choose pickup method";
+"SAR"="SR";
+"choose_type"="Choose Type";
+"choose_model"="Choose Model";
+"select_type_first"="Select car type first";
+"from_date_error"="Choose period start date";
+"to_date_error"="Choose period end date";
+"kilo_cost"="Kilo Cost";
+"kilo_free"="Kilo Free";
+"book_this_car"="Book this car";
+"favourites"="Favourites";
+"history"="History";
+"settings"="Settings";
+"receive_notifications"="Receive Notifications";
+"change_app_language"="Change Language To";
+"forgot_password_title"="Forgot Your Password";
+"send"="Send";
+"phone_code_verification"="Phone Code Verification";
+"verification_code"="Verification code";
+"submit"="Submit";
+"resend"="Resend";
+"from"="From";
+"to"="To";
+"type"="Type";
+"color"="Color";
+"model"="Model";
+"search"="Search";
+"profile_photo"="Profile Photo";
+"identifier_photo"="Identifier Photo";
+"license_photo"="License Photo";
+"choose_country"="Choose Country";
+"loading"="Loading…";
+"username_error"="Enter a valid Username";
+"password_error"="Enter a valid Password";
+"passwords_error"="Enter a valid and matching Password";
+"email_error"="Enter a valid Email";
+"phone_error"="Enter a valid Phone Number example (05xxxxxxxx)";
+"birth_error"="Select a valid birth date";
+"country_error"="Select a Country";
+"city_error"="Select a City";
+"identifier_error"="Enter a valid Identifier number";
+"verification_code_error"="Enter a valid Verification code";
+"code_not_correct"="Verification code is not correct";
+"choose_color"="Choose color";
+"no_match"="Your search does not match any car";
+
+"search_here"="Search here…";
+"add_identifier_photo"="Add Identifier photo";
+"add_licence_photo"="Add Licence photo";
+"password_reset_successfully"="Password has been reset successfully";
+"registered_successfully"="Your account has been registered";
+
+"booking_date"="Booking Date";
+"pick_up_method"="Pickup method";
+"pickup"="Pickup from office";
+"delivery"="Delivery to location";
+"agree_conditions"="I agree to eRent terms and conditions";
+"car_information"="Car information";
+
+"pending"="Pending";
+"processing"="Processing";
+"approved"="Approved";
+"on_the_way"="On The Way";
+"delivered"="Delivered";
+"done"="Done";
+"rejected"="Rejected";
+
+
+"subject_error" = "Enter subject first!";
+"body_error" = "Enter body first!";
+"name_error" = "Enter name first!";
+"mail_error" = "Enter E-mail first!";
+"phone_error2" = "Enter phone first!";
+
+
+"take_photo"="Take photo";
+"choose_photo"="Choose from Library";
+"cancel"="Cancel";
+"Take Photo" = "Take Photo";
+"male" = "Male";
+"female" = "Female";
+"Enter comment first!" = "Enter comment first!";
+"booking_closed"="Booking closed successfully";
+"from_price"="From price";
+"to_price"="To price";
+"from_date"="From date";
+"to_date"="To date";
+"user_doesnt_exist"="Provided username doesn't exist";
+"reset_password_title"="Reset Your Password";
+
+"car_renting"="Car Renting";
+"choose_city"="Choose City";
+"confirm_password"="Confirm Password";
+"car_booked_successfully"="Car has been booked successfully";
+
+"Your messages has been sent successfully." = "Your messages has been sent successfully.";
+
+"Change language" = "Change language";
+"App will restart to change language" = "Application will be closed to change language";
+"OK" = "OK";
+"Cancel" ="Cancel";
+
+"Add Image" = "Add Image";
+"Take Photo" = "Take Photo";
+"Select from library" = "Select from library";
+"hallah" = " hallah";
+"Please seelct your preferred language" = "Please seelct your preferred language";
+"Select Country" = "Select Country";
+"Select City" = "Select City";
+"Terms And Conditions" = "Terms And Conditions";
+
+"Please select type first" = "Please select type first";

@@ -1,0 +1,65 @@
+﻿@using Resources;
+@{
+    ViewBag.Title = Resources.Resource.Contact;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Resources.Resource.Contact</h2>
+<p>@Resources.Resource.ContactMessage</p>
+<ul>
+    <li>@Resources.Resource.Email: <a href="mailto:erent@ashhalan.com">erent@ashhalan.com</a></li>
+    <li>@Resources.Resource.Mobile: <span dir="ltr"> +966 505366999</span></li>
+    <li>@Resources.Resource.OrBySendMessageBelow :</li>
+</ul>
+<hr />
+@using (Html.BeginForm("ContactPost", "Account", FormMethod.Post, new { id = "mainForm", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div id="mainDiv" class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-md-2">@Resources.Resource.Name :</label>
+            <div class="col-md-4">
+                <input name="Name" class="form-control required" placeholder="@Resources.Resource.Name" />
+            </div>
+            <label class="control-label col-md-2">@Resources.Resource.Mobile :</label>
+            <div class="col-md-4">
+                <input name="Mobile" class="form-control required" placeholder="@Resources.Resource.Mobile" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">@Resources.Resource.Subject :</label>
+            <div class="col-md-4">
+                <input name="Subject" class="form-control required" placeholder="@Resources.Resource.Subject" />
+            </div>
+            <label class="control-label col-md-2">@Resources.Resource.Email :</label>
+            <div class="col-md-4">
+                <input name="Email" class="form-control required" placeholder="@Resources.Resource.Email" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">@Resources.Resource.Body :</label>
+            <div class="col-md-10">
+                <textarea id="Body" name="Body" class="form-control required" cols="50" rows="20"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="@Resources.Resource.Send" class="btn btn-success" />
+                <input onclick="clearBtn()" type="button" value="@Resources.Resource.Clear" class="btn btn-danger" />
+            </div>
+        </div>
+    </div>
+}
+@section scripts{
+    <script>
+        _orderPage = true;
+        $('#mainForm').submit(function () {
+            sendPostRequest(null, null, clearBtn);
+            return false;
+        });
+        function clearBtn() {
+            $(':input').not(':button, :submit').val('');
+            $('#Body').val('');
+        }
+    </script>
+}

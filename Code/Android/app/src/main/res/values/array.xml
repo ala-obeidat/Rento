@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="profile_titles">
+        <item>@string/contact_us</item>
+        <item>@string/favourites</item>
+        <item>@string/history</item>
+    </string-array>
+
+
+</resources>
